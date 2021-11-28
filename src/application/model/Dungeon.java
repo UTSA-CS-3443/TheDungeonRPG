@@ -11,7 +11,6 @@ public class Dungeon {
 	public static boolean monsterDefeated = false;
 	
 	//TEST BLAH BLAH
-	//Patrick was here
 	
 	public Dungeon(String description, String exit) {
 		Dungeon.description = description;
