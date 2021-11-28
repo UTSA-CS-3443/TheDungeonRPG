@@ -24,7 +24,7 @@ public class Player {
 	//dexterity
 	public int dex;
 	
-	//TESTCOMMENT FIXME
+	//TESTCOMMENT FIXME New update
 	//Player's inventory as Inventory object
 	public Inventory inventory;
 	
