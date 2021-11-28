@@ -38,7 +38,7 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 
 		playerName.setText(Main.playerChar.getName());
 		playerLevel.setText(Integer.toString(Main.playerChar.getLevel()));
-		playerHP.setText(Integer.toString(Main.playerChar.getHealth()));
+		playerHP.setText(Integer.toString(Main.playerChar.getCurrHealth()));
 		
 		
 		//TODO
