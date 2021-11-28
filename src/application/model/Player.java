@@ -28,11 +28,12 @@ public class Player {
 	//Player's inventory as Inventory object
 	public Inventory inventory;
 	
-	public  Player(String userName, String charClass, int health, int level, int exp, int strength, int defense, int dexterity, Inventory inventory)
+	public  Player(String userName, String charClass, int currHealth, int maxHealth, int level, int exp, int strength, int defense, int dexterity, Inventory inventory)
 	{
 		this.name = userName;
 		this.charClass = charClass;
-		this.health=health;
+		this.currHealth=currHealth;
+		this.maxHealth=maxHealth;
 		this.level=level;
 		this.exp=exp;
 		this.str = strength;
@@ -73,17 +74,31 @@ public class Player {
 	}
 
 	/**
-	 * @return the health
+	 * @return the currHealth
 	 */
-	public int getHealth() {
-		return health;
+	public int getCurrHealth() {
+		return currHealth;
 	}
 
 	/**
-	 * @param health the health to set
+	 * @param currHealth the currHealth to set
 	 */
-	public void setHealth(int health) {
-		this.health = health;
+	public void setCurrHealth(int currHealth) {
+		this.currHealth = currHealth;
+	}
+
+	/**
+	 * @return the maxHealth
+	 */
+	public int getMaxHealth() {
+		return maxHealth;
+	}
+
+	/**
+	 * @param maxHealth the maxHealth to set
+	 */
+	public void setMaxHealth(int maxHealth) {
+		this.maxHealth = maxHealth;
 	}
 
 	/**
@@ -183,4 +198,7 @@ public class Player {
 	public void setInventory(Inventory inventory) {
 		this.inventory = inventory;
 	}
+
+	
+
 }
