@@ -21,6 +21,10 @@ public class Main extends Application {
 	//Global player for ease of manipulation. Probably should be placed somewhere better though.
 	//Name, class, health, level, exp, strength, defense, dexterity, inventory object
 	public static Player playerChar = new Player("Placeholder", "noClass", 10, 10, 0, 0, 0, 0, 0, 0, null);
+	
+	//Temp Monster
+	public static Player monster = new Player("Placeholder", "noClass", 10, 10, 0, 0, 0, 0, 0, 0, null);
+	
 
 	@Override
 	public void start(Stage primaryStage) {

@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import application.model.Battle;
+import application.model.Player;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -14,7 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class BattleController implements EventHandler<ActionEvent>, Initializable {
+public class BattleController implements EventHandler<ActionEvent> ,Initializable{
 
 	@FXML private TextField playerName;
     @FXML private TextField playerLevel;
@@ -30,24 +32,24 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
     @FXML private Button runButton;
     @FXML private Button itemsButton;
 
-    
-    
-	public void initialize(URL location, ResourceBundle resources) {
-
-		playerName.setText(Main.playerChar.getName());
-		playerLevel.setText(Integer.toString(Main.playerChar.getLevel()));
-		playerHP.setText(Integer.toString(Main.playerChar.getCurrHealth()));
-
-		
-		
-	}
-    
     @FXML void attackPressed(ActionEvent event) {
-    	
+    	if(Main.monster.currHealth>0)
+    	Battle.attack(Main.playerChar, Main.monster);
+    	//System.out.println(Main.monster.currHealth);
+    	//System.out.println(Main.monster.level);
+    	String hp=String.valueOf( Main.playerChar.currHealth);
+    	playerHP.setText(hp);
+    	enemyHP.setText(String.valueOf( Main.monster.currHealth));
+    	playerLevel.setText(String.valueOf( Main.playerChar.level));
+
     }
 
     @FXML void defendPressed(ActionEvent event) {
 
+    	Battle.defend(Main.playerChar, Main.monster);
+    	String hp=String.valueOf( Main.playerChar.currHealth);
+    	playerHP.setText(hp);
+    	enemyHP.setText(String.valueOf( Main.monster.currHealth));
     }
 
     @FXML void abilityPressed(ActionEvent event) {
@@ -56,6 +58,7 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
 
     @FXML void runPressed(ActionEvent event) {
     	try {
+    		
 			Parent root = FXMLLoader.load(getClass().getResource("../view/Room.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
 			Main.stage.setTitle("The Dungeon RPG - The Dungeon");
@@ -86,6 +89,19 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		String hp=String.valueOf( Main.playerChar.currHealth);
+    	playerHP.setText(hp);
+    	playerName.setText(Main.playerChar.name);
+    	
+    	playerLevel.setText(String.valueOf( Main.playerChar.level));
+    	enemyLevel.setText(String.valueOf( Main.monster.level));
+    	enemyName.setText(Main.monster.name);
+    	enemyHP.setText(String.valueOf( Main.monster.currHealth));
 	}
 
 }
