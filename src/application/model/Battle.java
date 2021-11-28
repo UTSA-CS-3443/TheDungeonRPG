@@ -7,67 +7,60 @@ public class Battle {
 	public static int health =100;
 	static Random rand = new Random();
 	
-	public static boolean attack(Player player,Player Monster)
+	public static void attack(String player)
 	{
 		
 		if((rand.nextInt()%10) <=5)
 		{
-			Monster.health-=20;
+			health=health-10;
 			//monster take  1/2 damage 
 		}
 		if((rand.nextInt()%10) >=5 && rand.nextInt()  <7)
 		{
-			Monster.health-=25;
+			health=health;
 			//monster takes 25 damage
 		}
 		else {
-			player.health-=15;
-			//player takes damage
+			health=health-25;
 			//monster takes no damage
 		}
-		if(Monster.health<=0)
-		{ player.level+=1;
-			return true;
-		}
-		else
-			return false;
 	}
-	public static void defend(Player player,Player Monster)
+	public static void defend(String player)
 	{
 		{
 			
 			if((rand.nextInt()%10) <=5)
 			{
-				player.health=player.health;
+				health=health;
 			}
 			if((rand.nextInt()%10) >=5 && rand.nextInt()  <7)
 			{
-				player.health=player.health-2;
+				health=health-5;
 			}
 			else {
-				Monster.health=Monster.health-3;
+				health=health-10;
 			}
 		}
 	}
-	public static void ability(Player player,Player Monster)
+	public static void ability(String player)
 	{
 		
 	}
-	//dont know if they want to take damage from running but its available just in case.
-	public static void run(Player player,Player Monster)
+	
+	public static void run(String player)
 	{
 		{
 			
 			if((rand.nextInt()%10) <=5)
 			{
-				player.health=player.health;
+				health=health;
 			}
 			if((rand.nextInt()%10) >=5 && rand.nextInt()  <7)
 			{
-				player.health=player.health-50;
+				health=health-50;
 			}
 			else {
-				player.health=player.health-15;
+				health=health-15;
 			}
 		}
 		
