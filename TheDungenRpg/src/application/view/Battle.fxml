@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: black; -fx-border-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.BattleController">
+   <children>
+      <TextField fx:id="playerName" alignment="CENTER" editable="false" layoutX="76.0" layoutY="61.0" prefHeight="46.0" prefWidth="256.0" style="-fx-border-color: black;" text="Character Name">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="enemyName" alignment="CENTER" editable="false" layoutX="438.0" layoutY="61.0" prefHeight="46.0" prefWidth="256.0" style="-fx-border-color: black;" text="Enemy Name">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </TextField>
+      <TextField alignment="CENTER" editable="false" layoutX="76.0" layoutY="143.0" prefHeight="46.0" prefWidth="115.0" style="-fx-border-color: black;" text="Level:">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </TextField>
+      <TextField alignment="CENTER" editable="false" layoutX="438.0" layoutY="143.0" prefHeight="46.0" prefWidth="115.0" style="-fx-border-color: black;" text="Level:">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </TextField>
+      <TextField alignment="CENTER" editable="false" layoutX="76.0" layoutY="210.0" prefHeight="46.0" prefWidth="115.0" style="-fx-border-color: black;" text="HP:">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </TextField>
+      <TextField alignment="CENTER" editable="false" layoutX="438.0" layoutY="210.0" prefHeight="46.0" prefWidth="115.0" style="-fx-border-color: b;lack;" text="HP:">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="playerLevel" alignment="CENTER" editable="false" layoutX="219.0" layoutY="143.0" prefHeight="46.0" prefWidth="115.0" style="-fx-border-color: black;" text="0">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="playerHP" alignment="CENTER" editable="false" layoutX="219.0" layoutY="210.0" prefHeight="46.0" prefWidth="115.0" style="-fx-border-color: black;" text="0">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="enemyLevel" alignment="CENTER" editable="false" layoutX="581.0" layoutY="143.0" prefHeight="46.0" prefWidth="115.0" style="-fx-border-color: black;" text="0">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="enemyHP" alignment="CENTER" editable="false" layoutX="581.0" layoutY="210.0" prefHeight="46.0" prefWidth="115.0" style="-fx-border-color: black;" text="0">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </TextField>
+      <TextField alignment="CENTER" editable="false" layoutX="308.0" layoutY="366.0" prefHeight="68.0" prefWidth="184.0" style="-fx-border-color: black;" text="Actions">
+         <font>
+            <Font name="Franklin Gothic Medium" size="36.0" />
+         </font>
+      </TextField>
+      <Button fx:id="attackButton" layoutX="134.0" layoutY="482.0" mnemonicParsing="false" onAction="#attackPressed" prefHeight="66.0" prefWidth="176.0" text="ATTACK">
+         <font>
+            <Font name="Franklin Gothic Medium" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="defendButton" layoutX="134.0" layoutY="582.0" mnemonicParsing="false" onAction="#defendPressed" text="DEFEND">
+         <font>
+            <Font name="Franklin Gothic Medium" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="abilityButton" layoutX="496.0" layoutY="482.0" mnemonicParsing="false" onAction="#abilityPressed" prefHeight="66.0" prefWidth="176.0" text="ABILITY">
+         <font>
+            <Font name="Franklin Gothic Medium" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="runButton" layoutX="496.0" layoutY="582.0" mnemonicParsing="false" onAction="#runPressed" prefHeight="66.0" prefWidth="176.0" text="RUN">
+         <font>
+            <Font name="Franklin Gothic Medium" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="itemsButton" layoutX="312.0" layoutY="672.0" mnemonicParsing="false" onAction="#itemsPressed" prefHeight="66.0" prefWidth="176.0" text="ITEMS">
+         <font>
+            <Font name="Franklin Gothic Medium" size="36.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
