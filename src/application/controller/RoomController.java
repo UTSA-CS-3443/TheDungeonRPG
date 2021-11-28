@@ -28,6 +28,10 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
     @FXML private Button rightButton;
 
     @FXML void fightPressed(ActionEvent event) {
+    	
+    	//TODO
+    	//Check if there's a monster in the room to fight
+    	
     	try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/Battle.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
@@ -44,6 +48,10 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 
     @FXML void lootPressed(ActionEvent event) {
 
+    	//TODO
+    	//Check if there's loot?
+    	// Perhaps it can backfire?
+    	
     }
 
     @FXML void upPressed(ActionEvent event) {

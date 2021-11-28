@@ -1,16 +1,20 @@
 package application.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class BattleController implements EventHandler<ActionEvent> {
+public class BattleController implements EventHandler<ActionEvent>, Initializable {
 
 	@FXML private TextField playerName;
     @FXML private TextField playerLevel;
@@ -26,8 +30,20 @@ public class BattleController implements EventHandler<ActionEvent> {
     @FXML private Button runButton;
     @FXML private Button itemsButton;
 
-    @FXML void attackPressed(ActionEvent event) {
+    
+    
+	public void initialize(URL location, ResourceBundle resources) {
 
+		playerName.setText(Main.playerChar.getName());
+		playerLevel.setText(Integer.toString(Main.playerChar.getLevel()));
+		playerHP.setText(Integer.toString(Main.playerChar.getHealth()));
+
+		
+		
+	}
+    
+    @FXML void attackPressed(ActionEvent event) {
+    	
     }
 
     @FXML void defendPressed(ActionEvent event) {

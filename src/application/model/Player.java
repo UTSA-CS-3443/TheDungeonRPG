@@ -31,7 +31,7 @@ public class Player {
 	{
 		this.name = userName;
 		this.charClass = charClass;
-		this.health=100;
+		this.health=health;
 		this.level=level;
 		this.exp=exp;
 		this.str = strength;
