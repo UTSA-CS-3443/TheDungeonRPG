@@ -1,16 +1,21 @@
 package application.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import application.Main;
+import application.model.Dungeon;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
-public class RoomController implements EventHandler<ActionEvent> {
+public class RoomController implements EventHandler<ActionEvent>, Initializable {
 
 	@FXML private TextArea roomDesc;
 	
@@ -42,24 +47,63 @@ public class RoomController implements EventHandler<ActionEvent> {
     }
 
     @FXML void upPressed(ActionEvent event) {
-
+    	
+    	if(Dungeon.exit.equals("North")) {
+    		Dungeon.curRoom += 1;
+    		Dungeon.loadRoom(Dungeon.curRoom);
+    		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
+    	}
+    	
+    	else
+    		roomDesc.setText("There is no path this way, please try another direction.");
     }
 
     @FXML void leftPressed(ActionEvent event) {
-
+    	
+    	if(Dungeon.exit.equals("West")) {
+    		Dungeon.curRoom += 1;
+    		Dungeon.loadRoom(Dungeon.curRoom);
+    		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
+    	}
+    	
+    	else
+    		roomDesc.setText("There is no path this way, please try another direction.");
     }
     
     @FXML void downPressed(ActionEvent event) {
-
+    	
+    	if(Dungeon.exit.equals("South")) {
+    		Dungeon.curRoom += 1;
+    		Dungeon.loadRoom(Dungeon.curRoom);
+    		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
+    	}
+    	
+    	else
+    		roomDesc.setText("There is no path this way, please try another direction.");
     }
 
     @FXML void rightPressed(ActionEvent event) {
-
+    	
+    	if(Dungeon.exit.equals("East")) {
+    		Dungeon.curRoom += 1;
+    		Dungeon.loadRoom(Dungeon.curRoom);
+    		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
+    	}
+    	
+    	else
+    		roomDesc.setText("There is no path this way, please try another direction.");
     }
 
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		Dungeon.loadRoom(Dungeon.curRoom);
+		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
 		
 	}
 }
