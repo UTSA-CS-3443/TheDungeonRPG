@@ -8,7 +8,9 @@ public class Dungeon {
 	public static String exit;
 	public static ArrayList<Dungeon> roomList = new ArrayList<>();
 	public static int curRoom = 1;
-	public static boolean monsterDefeated = true;
+	public static boolean monsterDefeated = false;
+	
+	//TEST BLAH BLAH
 	
 	public Dungeon(String description, String exit) {
 		Dungeon.description = description;
