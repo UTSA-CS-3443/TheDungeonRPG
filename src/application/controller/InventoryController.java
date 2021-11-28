@@ -1,24 +1,20 @@
 package application.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class InventoryController implements EventHandler<ActionEvent>, Initializable {
+public class InventoryController implements EventHandler<ActionEvent> {
 
 	@FXML private TextField playerName;
-	@FXML private TextField playerLevel;
-    @FXML private TextField playerHP;
+	@FXML private TextField curLevel;
+    @FXML private TextField curHP;
     @FXML private TextField curExp;
     @FXML private TextField nextLevel;
     
@@ -33,32 +29,6 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
     @FXML private Button item9;
     @FXML private Button item10;
 
-    
-	public void initialize(URL location, ResourceBundle resources) {
-
-		playerName.setText(Main.playerChar.getName());
-		playerLevel.setText(Integer.toString(Main.playerChar.getLevel()));
-		playerHP.setText(Integer.toString(Main.playerChar.getHealth()));
-		
-		
-		//TODO
-		//FIXME
-		//Check inventory to initialize these (arraylist?)
-		item1.setText("Empty");
-		item2.setText("Empty");
-		item3.setText("Empty");
-		item4.setText("Empty");
-		item5.setText("Empty");
-		item6.setText("Empty");
-		item7.setText("Empty");
-		item8.setText("Empty");
-		item9.setText("Empty");
-		item10.setText("Empty");
-
-
-	
-	}
-    
     @FXML void item1Pressed(ActionEvent event) {
     	//Do Something
     	

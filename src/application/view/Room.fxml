@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: black; -fx-border-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.RoomController">
    <children>
       <TextArea fx:id="roomDesc" layoutX="22.0" layoutY="55.0" prefHeight="200.0" prefWidth="754.0" style="-fx-border-color: white;" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." wrapText="true">
@@ -18,7 +19,7 @@
             <Font name="Franklin Gothic Medium" size="48.0" />
          </font>
       </Button>
-      <Button fx:id="lootButton" layoutX="93.0" layoutY="539.0" mnemonicParsing="false" onAction="#lootPressed" prefHeight="90.0" prefWidth="209.0" text="LOOT">
+      <Button fx:id="lootButton" layoutX="93.0" layoutY="539.0" mnemonicParsing="false" onAction="#lootPressed" prefHeight="88.0" prefWidth="186.0" text="LOOT">
          <font>
             <Font name="Franklin Gothic Medium" size="48.0" />
          </font>
