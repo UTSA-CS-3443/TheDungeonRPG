@@ -7,7 +7,8 @@ public class Player {
 	//public static Player bob =new Player("bob");
 	public String name;
 	public String charClass;
-	public int health;
+	public int currHealth;
+	public int maxHealth;
 	public int level;
 	
 	//Current experience (for advancing to next level)
