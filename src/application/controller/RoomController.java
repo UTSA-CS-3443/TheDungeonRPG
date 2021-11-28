@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 import application.Main;
 import application.model.Dungeon;
-import application.model.Player;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -29,6 +28,10 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
     @FXML private Button rightButton;
 
     @FXML void fightPressed(ActionEvent event) {
+    	
+    	//TODO
+    	//Check if there's a monster in the room to fight
+    	
     	try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/Battle.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
@@ -45,6 +48,10 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 
     @FXML void lootPressed(ActionEvent event) {
 
+    	//TODO
+    	//Check if there's loot?
+    	// Perhaps it can backfire?
+    	
     }
 
     @FXML void upPressed(ActionEvent event) {
@@ -53,10 +60,6 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
     		Dungeon.curRoom += 1;
     		Dungeon.loadRoom(Dungeon.curRoom);
     		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
-    		Player.monster.health=100;
-    		Player.monster.level+=1;
-    		
-    		
     	}
     	
     	else
@@ -69,8 +72,6 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
     		Dungeon.curRoom += 1;
     		Dungeon.loadRoom(Dungeon.curRoom);
     		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
-    		Player.monster.health=100;
-    		Player.monster.level+=1;
     	}
     	
     	else
@@ -83,8 +84,6 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
     		Dungeon.curRoom += 1;
     		Dungeon.loadRoom(Dungeon.curRoom);
     		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
-    		Player.monster.health=100;
-    		Player.monster.level+=1;
     	}
     	
     	else
@@ -97,8 +96,6 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
     		Dungeon.curRoom += 1;
     		Dungeon.loadRoom(Dungeon.curRoom);
     		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
-    		Player.monster.health=100;
-    		Player.monster.level+=1;
     	}
     	
     	else
