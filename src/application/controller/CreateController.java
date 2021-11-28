@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -15,7 +16,10 @@ import javafx.scene.text.Text;
 public class CreateController implements EventHandler<ActionEvent> {
 
 	@FXML private TextField charName;
+	
 	@FXML private SplitMenuButton classSelect;
+	@FXML private MenuItem warriorItem;
+	@FXML private MenuItem hunterItem;
 	
 	@FXML private Button strengthDec;
 	@FXML private Button strengthInc;
@@ -35,9 +39,30 @@ public class CreateController implements EventHandler<ActionEvent> {
     
     @FXML private Button submitButton;
     
+    //FIXME
+    //NOTE - not sure why @FXML before each of the methods? Not necessary
     @FXML void classSelected(ActionEvent event) {
+    	
+    }
+    
+    public void warriorSelected(ActionEvent event) {
+    	System.out.println("WARRIOR");
+    	classSelect.setText("Warrior");
+    	//TODO keep dropdown width the same
+    	Main.playerChar.setCharClass("Warrior");
 
     }
+    
+    public void hunterSelected(ActionEvent event) {
+    	System.out.println("HUNTER");
+    	classSelect.setText("Hunter");
+    	//TODO keep dropdown width the same
+    	Main.playerChar.setCharClass("Hunter");
+
+
+    }
+    
+    
 
     @FXML void strengthDecPressed(ActionEvent event) {
 

@@ -115,8 +115,8 @@
       </Text>
       <SplitMenuButton fx:id="classSelect" layoutX="182.0" layoutY="185.0" mnemonicParsing="false" onAction="#classSelected" text="&lt;Choose Class&gt;">
         <items>
-          <MenuItem mnemonicParsing="false" text="Warrior" />
-          <MenuItem mnemonicParsing="false" text="Hunter" />
+          <MenuItem fx:id="warriorItem" mnemonicParsing="false" onAction="#warriorSelected" text="Warrior" />
+          <MenuItem fx:id="hunterItem" mnemonicParsing="false" onAction="#hunterSelected" text="Hunter" />
         </items>
          <font>
             <Font size="24.0" />
