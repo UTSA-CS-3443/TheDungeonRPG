@@ -28,7 +28,7 @@ public class Player {
 	//Player's inventory as Inventory object
 	public Inventory inventory;
 	
-	public  Player(String userName, String charClass, int currHealth, int maxHealth, int level, int exp, int strength, int defense, int dexterity, Inventory inventory)
+	public  Player(String userName, String charClass, int currHealth, int maxHealth, int level, int exp, int strength, int defense, int spd,  int dexterity, Inventory inventory)
 	{
 		this.name = userName;
 		this.charClass = charClass;
@@ -38,6 +38,7 @@ public class Player {
 		this.exp=exp;
 		this.str = strength;
 		this.def = defense;
+		this.spd = spd;
 		this.dex = dexterity;
 		
 		//TODO create function to make an empty inventory

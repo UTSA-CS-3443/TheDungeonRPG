@@ -8,11 +8,12 @@ public class Dungeon {
 	public static String exit;
 	public static ArrayList<Dungeon> roomList = new ArrayList<>();
 	public static int curRoom = 1;
-	public static boolean monsterDefeated = false;
-		
-	public Dungeon(String description, String exit) {
+	public static boolean monsterDefeated;
+	
+	public Dungeon(String description, String exit, boolean monsterDefeated) {
 		Dungeon.description = description;
 		Dungeon.exit = exit;
+		Dungeon.monsterDefeated = monsterDefeated;
 	}
 	
 	public static void room1() {
@@ -21,8 +22,9 @@ public class Dungeon {
 				+ "perish within the dark depths of the temple.\n"
 				+ "Exit: North";
 		exit = "North";
+		monsterDefeated = true;
 		
-		roomList.add(new Dungeon(description, exit));
+		roomList.add(new Dungeon(description, exit, monsterDefeated));
 	}
 	
 	public static void room2() {
@@ -32,8 +34,9 @@ public class Dungeon {
 				+ "Monster: [MONSTER NAME]\n"
 				+ "Exit: West.";
 		exit = "West";
+		monsterDefeated = false;
 		
-		roomList.add(new Dungeon(description, exit));
+		roomList.add(new Dungeon(description, exit, monsterDefeated));
 	}
 	
 	public static void room3() {
@@ -43,8 +46,9 @@ public class Dungeon {
 				+ "Monster: [MONSTER NAME]\n"
 				+ "Exit: North";
 		exit = "North";
+		monsterDefeated = false;
 		
-		roomList.add(new Dungeon(description, exit));
+		roomList.add(new Dungeon(description, exit, monsterDefeated));
 	}
 	
 	public static void room4() {
@@ -53,10 +57,11 @@ public class Dungeon {
 				+ "booming voice echo out, 'You have earned a rest Champion, take time to gather yourself before you continue forward.' You have gained [XXX] HP.\n"
 				+ "Exit: North";
 		exit = "North";
+		monsterDefeated = true;
 		
 		//TODO: Add Health To Player.
 		
-		roomList.add(new Dungeon(description, exit));
+		roomList.add(new Dungeon(description, exit, monsterDefeated));
 	}
 	
 	public static void room5() {
@@ -65,8 +70,9 @@ public class Dungeon {
 				+ "Monster: [MONSTER NAME]\n"
 				+ "Exit: East";
 		exit = "East";
+		monsterDefeated = false;
 		
-		roomList.add(new Dungeon(description, exit));
+		roomList.add(new Dungeon(description, exit, monsterDefeated));
 	}
 	
 	public static void room6() {
@@ -76,8 +82,9 @@ public class Dungeon {
 				+ "Monster: [MONSTER NAME]\n"
 				+ "Exit: East";
 		exit = "East";
+		monsterDefeated = false;
 		
-		roomList.add(new Dungeon(description, exit));
+		roomList.add(new Dungeon(description, exit, monsterDefeated));
 	}
 	
 	public static void room7() {
@@ -87,8 +94,9 @@ public class Dungeon {
 				+ "Monster: [MONSTER NAME]\n"
 				+ "Exit: South";
 		exit = "South";
+		monsterDefeated = false;
 		
-		roomList.add(new Dungeon(description, exit));
+		roomList.add(new Dungeon(description, exit, monsterDefeated));
 	}
 	
 	public static void room8() {
@@ -96,10 +104,11 @@ public class Dungeon {
 				+ "you hear the same voice speak out to you, 'Champion, you have almost completed the trials. Ahead lays the final trial. Ready yourself and then move through the door.' You have gained [XXX] HP.\n"
 				+ "Exit: South";
 		exit = "South";
+		monsterDefeated = true;
 		
 		//TODO: Add Health To Player.
 		
-		roomList.add(new Dungeon(description, exit));
+		roomList.add(new Dungeon(description, exit, monsterDefeated));
 	}
 	
 	public static void room9() {
@@ -109,8 +118,9 @@ public class Dungeon {
 				+ "Monster: [MONSTER NAME]\n"
 				+ "Exit: West";
 		exit = "West";
+		monsterDefeated = false;
 		
-		roomList.add(new Dungeon(description, exit));
+		roomList.add(new Dungeon(description, exit, monsterDefeated));
 	}
 	
 	public static void room10() {
@@ -119,7 +129,7 @@ public class Dungeon {
 				+ "'Congratulations, for you are now a Hero. Before you lies the ancient weapons and armor of all the Heroes before you. Gather them now Hero, for the fate of the world rests on your shoulders.'";
 		exit = "South";
 		
-		roomList.add(new Dungeon(description, exit));
+		roomList.add(new Dungeon(description, exit, monsterDefeated));
 	}
 	
 	public static void loadRoom(int curRoom) {
