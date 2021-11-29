@@ -36,8 +36,13 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 
 	@FXML
 	void fightPressed(ActionEvent event) {
+		if (Dungeon.curMonster.equals("NULL"))
+		{
+			roomDesc.setText("There are no monsters here, you may move on to the next room.");
+			Dungeon.monsterDefeated = true;
+		}
 
-		if (Dungeon.monsterDefeated == false) {
+		else if (Dungeon.monsterDefeated == false) {
 
 			try {
 				Parent root = FXMLLoader.load(getClass().getResource("../view/Battle.fxml"));
@@ -51,9 +56,6 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 				e.printStackTrace();
 			}
 		}
-
-		else
-			roomDesc.setText("There are no monsters here, you may move on to the next room.");
 
 	}
 
