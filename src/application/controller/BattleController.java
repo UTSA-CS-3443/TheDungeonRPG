@@ -57,7 +57,8 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
 		if (Main.monster.currHealth <= 0) {
 
 			try {
-
+				Main.playerChar.inventory.getItemList().add( "Potion" ) ;
+				//Main.playerChar.inventory.addItem("Potion");
 				Dungeon.monsterDefeated = true;
 				Parent root = FXMLLoader.load(getClass().getResource("../view/Room.fxml"));
 				Main.stage.setScene(new Scene(root, 800, 800));
@@ -70,8 +71,27 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
 				e.printStackTrace();
 			}
 		}
+		
+		
+		if (Main.playerChar.currHealth <= 0) {
+Main.status = "Defeat";
+		
+		try {
+
+			Parent root = FXMLLoader.load(getClass().getResource("../view/End.fxml"));
+			Main.stage.setScene(new Scene(root, 800, 800));
+			Main.stage.setTitle("The Dungeon RPG - Defeated");
+			Main.stage.show();
+
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	}
+	
 
 	@FXML
 	void defendPressed(ActionEvent event) {
