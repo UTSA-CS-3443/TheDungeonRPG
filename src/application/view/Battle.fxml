@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
@@ -9,6 +10,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: black; -fx-border-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.BattleController">
    <children>
+      <ImageView fitHeight="850.0" fitWidth="850.0" layoutY="-10.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/hallway.png" />
+         </image>
+      </ImageView>
       <TextField fx:id="playerName" alignment="CENTER" editable="false" layoutX="76.0" layoutY="61.0" prefHeight="46.0" prefWidth="256.0" style="-fx-border-color: black;" text="Character Name">
          <font>
             <Font name="Franklin Gothic Medium" size="24.0" />
@@ -59,27 +65,27 @@
             <Font name="Franklin Gothic Medium" size="24.0" />
          </font>
       </TextField>
-      <TextField alignment="CENTER" editable="false" layoutX="308.0" layoutY="366.0" prefHeight="68.0" prefWidth="184.0" style="-fx-border-color: black;" text="Actions">
+      <TextField alignment="CENTER" editable="false" layoutX="308.0" layoutY="365.0" prefHeight="68.0" prefWidth="184.0" style="-fx-border-color: black;" text="Actions">
          <font>
             <Font name="Franklin Gothic Medium" size="36.0" />
          </font>
       </TextField>
-      <Button fx:id="attackButton" layoutX="134.0" layoutY="482.0" mnemonicParsing="false" onAction="#attackPressed" prefHeight="66.0" prefWidth="176.0" text="ATTACK">
+      <Button fx:id="attackButton" layoutX="134.0" layoutY="459.0" mnemonicParsing="false" onAction="#attackPressed" prefHeight="68.0" prefWidth="207.0" text="ATTACK">
          <font>
             <Font name="Franklin Gothic Medium" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="defendButton" layoutX="134.0" layoutY="582.0" mnemonicParsing="false" onAction="#defendPressed" text="DEFEND" visible="false">
+      <Button fx:id="defendButton" disable="true" layoutX="22.0" layoutY="706.0" mnemonicParsing="false" onAction="#defendPressed" text="DEFEND" visible="false">
          <font>
             <Font name="Franklin Gothic Medium" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="abilityButton" layoutX="496.0" layoutY="482.0" mnemonicParsing="false" onAction="#abilityPressed" prefHeight="66.0" prefWidth="176.0" text="ABILITY" visible="false">
+      <Button fx:id="abilityButton" disable="true" layoutX="33.0" layoutY="628.0" mnemonicParsing="false" onAction="#abilityPressed" prefHeight="66.0" prefWidth="176.0" text="ABILITY" visible="false">
          <font>
             <Font name="Franklin Gothic Medium" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="runButton" layoutX="496.0" layoutY="582.0" mnemonicParsing="false" onAction="#runPressed" prefHeight="66.0" prefWidth="176.0" text="RUN">
+      <Button fx:id="runButton" layoutX="454.0" layoutY="459.0" mnemonicParsing="false" onAction="#runPressed" prefHeight="68.0" prefWidth="207.0" text="RUN">
          <font>
             <Font name="Franklin Gothic Medium" size="36.0" />
          </font>
