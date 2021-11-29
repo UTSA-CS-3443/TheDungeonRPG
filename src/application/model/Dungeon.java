@@ -11,12 +11,11 @@ public class Dungeon {
 	public static String exit;
 	public static String curMonster;
 	public static int curRoom = 1;
-	public static boolean monsterDefeated;
+	public static boolean monsterDefeated = false;
 
-	public Dungeon(String description, String exit, boolean monsterDefeated, String curMonster) {
+	public Dungeon(String description, String exit) {
 		Dungeon.description = description;
 		Dungeon.exit = exit;
-		Dungeon.monsterDefeated = monsterDefeated = false;
 	}
 
 	public static void room1() {
@@ -26,7 +25,7 @@ public class Dungeon {
 		exit = "North";
 		curMonster = "NULL";
 
-		roomList.add(new Dungeon(description, exit, monsterDefeated, curMonster));
+		roomList.add(new Dungeon(description, exit));
 	}
 
 	public static void room2() {
@@ -37,7 +36,7 @@ public class Dungeon {
 		exit = "West";
 		curMonster = "Skeleton";
 
-		roomList.add(new Dungeon(description, exit, monsterDefeated, curMonster));
+		roomList.add(new Dungeon(description, exit));
 	}
 
 	public static void room3() {
@@ -48,7 +47,7 @@ public class Dungeon {
 		exit = "North";
 		curMonster = "NULL";
 
-		roomList.add(new Dungeon(description, exit, monsterDefeated, curMonster));
+		roomList.add(new Dungeon(description, exit));
 	}
 
 	public static void room4() {
@@ -62,7 +61,7 @@ public class Dungeon {
 		// TODO: Add Health To Player.
 		curMonster = "NULL";
 
-		roomList.add(new Dungeon(description, exit, monsterDefeated, curMonster));
+		roomList.add(new Dungeon(description, exit));
 	}
 
 	public static void room5() {
@@ -72,7 +71,7 @@ public class Dungeon {
 		exit = "East";
 		curMonster = "NULL";
 
-		roomList.add(new Dungeon(description, exit, monsterDefeated, curMonster));
+		roomList.add(new Dungeon(description, exit));
 	}
 
 	public static void room6() {
@@ -83,7 +82,7 @@ public class Dungeon {
 		exit = "East";
 		curMonster = "NULL";
 
-		roomList.add(new Dungeon(description, exit, monsterDefeated, curMonster));
+		roomList.add(new Dungeon(description, exit));
 	}
 
 	public static void room7() {
@@ -94,7 +93,7 @@ public class Dungeon {
 		exit = "South";
 		curMonster = "NULL";
 
-		roomList.add(new Dungeon(description, exit, monsterDefeated, curMonster));
+		roomList.add(new Dungeon(description, exit));
 	}
 
 	public static void room8() {
@@ -107,7 +106,7 @@ public class Dungeon {
 		// TODO: Add Health To Player.
 		curMonster = "NULL";
 
-		roomList.add(new Dungeon(description, exit, monsterDefeated, curMonster));
+		roomList.add(new Dungeon(description, exit));
 	}
 
 	public static void room9() {
@@ -118,7 +117,7 @@ public class Dungeon {
 		exit = "West";
 		curMonster = "NULL";
 
-		roomList.add(new Dungeon(description, exit, monsterDefeated, curMonster));
+		roomList.add(new Dungeon(description, exit));
 	}
 
 	public static void room10() {
@@ -131,7 +130,7 @@ public class Dungeon {
 		curMonster = "NULL";
 		Main.status = "Victory";
 
-		roomList.add(new Dungeon(description, exit, monsterDefeated, curMonster));
+		roomList.add(new Dungeon(description, exit));
 	}
 
 	public static void loadRoom(int curRoom) {
