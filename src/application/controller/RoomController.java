@@ -13,12 +13,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 public class RoomController implements EventHandler<ActionEvent>, Initializable {
 
 	@FXML
 	private TextArea roomDesc;
+	@FXML
+	private Label labelText;
 
 	@FXML
 	private Button fightButton;
@@ -36,8 +39,7 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 
 	@FXML
 	void fightPressed(ActionEvent event) {
-		if (Dungeon.curMonster.equals("NULL"))
-		{
+		if (Dungeon.curMonster.equals("NULL")) {
 			roomDesc.setText("There are no monsters here, you may move on to the next room.");
 		}
 
@@ -155,6 +157,13 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 	public void initialize(URL location, ResourceBundle resources) {
 		Dungeon.loadRoom(Dungeon.curRoom);
 		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
+		
+		labelText.setVisible(false);
+
+		if (Dungeon.curMonster.equals("NULL")) ;
+		else
+			if(Dungeon.monsterDefeated == true)
+				labelText.setVisible(true);
 
 	}
 }
