@@ -24,6 +24,7 @@ public class Dungeon {
 				+ " perish within the dark depths of the temple.\n" + "Exit: North";
 		exit = "North";
 		curMonster = "NULL";
+		monsterDefeated = true;
 
 		roomList.add(new Dungeon(description, exit));
 	}

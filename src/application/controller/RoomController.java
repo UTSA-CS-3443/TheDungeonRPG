@@ -39,7 +39,6 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 		if (Dungeon.curMonster.equals("NULL"))
 		{
 			roomDesc.setText("There are no monsters here, you may move on to the next room.");
-			Dungeon.monsterDefeated = true;
 		}
 
 		else if (Dungeon.monsterDefeated == false) {
