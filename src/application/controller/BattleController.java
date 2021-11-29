@@ -54,6 +54,12 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
 		playerHP.setText(hp);
 		enemyHP.setText(String.valueOf(Main.monster.currHealth));
 		playerLevel.setText(String.valueOf(Main.playerChar.level));
+		
+		//FIXME
+		//FOR THE VIDEO - force the player to die to get to the end scene
+		//Main.playerChar.currHealth = -5;
+		//Main.monster.currHealth = 500;
+		
 		if (Main.monster.currHealth <= 0) {
 
 			try {
@@ -74,7 +80,9 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
 		
 		
 		if (Main.playerChar.currHealth <= 0) {
-Main.status = "Defeat";
+			//FIXME troubleshooting print statement
+			//System.out.println("DEFEATED");
+			Main.status = "Defeat";
 		
 		try {
 
