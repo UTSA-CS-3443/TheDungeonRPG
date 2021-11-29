@@ -43,33 +43,59 @@ public class CreateController implements EventHandler<ActionEvent> {
     
     @FXML private Label labelError;
     
-    //FIXME
-    //NOTE - not sure why @FXML before each of the methods? Not necessary
+
     @FXML void classSelected(ActionEvent event) {
     	
     }
     
-    public void nameUpdated(KeyEvent event) {
+    @FXML void nameUpdated(KeyEvent event) {
     	System.out.println(charName.getText());
     	
     	Main.playerChar.name = charName.getText();
 
     }
     
-    public void warriorSelected(ActionEvent event) {
+    @FXML void warriorSelected(ActionEvent event) {
     	System.out.println("WARRIOR");
     	classSelect.setText("Warrior");
-    	//TODO keep dropdown width the same
     	Main.playerChar.setCharClass("Warrior");
+    	
+    	/*
+    	 * Warrior stats
+    	 * Strength: 10 
+			Defense: 10 
+			Speed: 5 
+			Dexterity: 0 
+    	 */
+    	
+    	Main.playerChar.setStr(10);
+    	Main.playerChar.setDef(10);
+    	Main.playerChar.setSpd(5);
+    	Main.playerChar.setDex(0);
+    	
+    	strengthCount.setText(Integer.toString(Main.playerChar.getStr()));
+    	defenseCount.setText(Integer.toString(Main.playerChar.getDef()));
+    	speedCount.setText(Integer.toString(Main.playerChar.getSpd()));
+    	dexterityCount.setText(Integer.toString(Main.playerChar.getDex()));
 
     }
     
-    public void hunterSelected(ActionEvent event) {
+    @FXML void hunterSelected(ActionEvent event) {
     	System.out.println("HUNTER");
     	classSelect.setText("Hunter");
-    	//TODO keep dropdown width the same
     	Main.playerChar.setCharClass("Hunter");
 
+    	
+    	Main.playerChar.setStr(0);
+    	Main.playerChar.setDef(5);
+    	Main.playerChar.setSpd(10);
+    	Main.playerChar.setDex(10);
+    	
+    	strengthCount.setText(Integer.toString(Main.playerChar.getStr()));
+    	defenseCount.setText(Integer.toString(Main.playerChar.getDef()));
+    	speedCount.setText(Integer.toString(Main.playerChar.getSpd()));
+    	dexterityCount.setText(Integer.toString(Main.playerChar.getDex()));
+    	
     }
     
 

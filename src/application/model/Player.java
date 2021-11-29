@@ -3,8 +3,6 @@ package application.model;
 
 public class Player {
 	
-	
-	//public static Player bob =new Player("bob");
 	public String name;
 	public String charClass;
 	public int currHealth;
@@ -41,11 +39,21 @@ public class Player {
 		this.spd = spd;
 		this.dex = dexterity;
 		
-		//TODO create function to make an empty inventory
-		this.inventory = inventory;
+		//TODO Make sure this doesn't return null pointer later in code (inventorycontroller)
+		this.inventory = makeInventory(inventory);
 		
 	}
 
+	public Inventory makeInventory(Inventory inventory) {
+		if(inventory == (null)) {
+			return new Inventory();
+		}
+		else {
+			return inventory;
+		}
+	}
+	
+	
 	/**
 	 * @return the name
 	 */

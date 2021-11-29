@@ -58,7 +58,7 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
     private void loadInventoryList( ArrayList<String> itemList ) {
     	int i = 0;
     	
-    	for( i = 0; i >= itemList.size() || i >= 10; i++ ) {
+    	for( i = 0; i < itemList.size() && i < 10; i++ ) {
     		switch(i) {
     			case 0:
     				item1.setText( itemList.get(i) );
