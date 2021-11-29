@@ -72,6 +72,7 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 			roomDesc.setText("You must first pass the trial before moving on!");
 
 		else if (Dungeon.exit.equals("North")) {
+			Dungeon.monsterDefeated = false;
 			Dungeon.curRoom += 1;
 			Dungeon.loadRoom(Dungeon.curRoom);
 			roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
@@ -87,6 +88,7 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 			roomDesc.setText("You must first pass the trial before moving on!");
 
 		else if (Dungeon.exit.equals("West")) {
+			Dungeon.monsterDefeated = false;
 			Dungeon.curRoom += 1;
 			Dungeon.loadRoom(Dungeon.curRoom);
 			roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
@@ -98,10 +100,25 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 
 	@FXML
 	void downPressed(ActionEvent event) {
+		if (Main.status.equals("Victory")) {
+			try {
+				Parent root = FXMLLoader.load(getClass().getResource("../view/End.fxml"));
+				Main.stage.setScene(new Scene(root, 800, 800));
+				Main.stage.setTitle("The Dungeon RPG - Victory!");
+				Main.stage.show();
+
+			}
+
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
 		if (Dungeon.monsterDefeated == false)
 			roomDesc.setText("You must first pass the trial before moving on!");
 
 		else if (Dungeon.exit.equals("South")) {
+			Dungeon.monsterDefeated = false;
 			Dungeon.curRoom += 1;
 			Dungeon.loadRoom(Dungeon.curRoom);
 			roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
@@ -117,6 +134,7 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 			roomDesc.setText("You must first pass the trial before moving on!");
 
 		else if (Dungeon.exit.equals("East")) {
+			Dungeon.monsterDefeated = false;
 			Dungeon.curRoom += 1;
 			Dungeon.loadRoom(Dungeon.curRoom);
 			roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());

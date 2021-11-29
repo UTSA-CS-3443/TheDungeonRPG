@@ -17,6 +17,9 @@ import javafx.scene.Scene;
 public class Main extends Application {
 	
 	public static Stage stage;
+	
+	//public static boolean status = true;
+	public static String status = "";
 	//Added by Patrick
 	//Global player for ease of manipulation. Probably should be placed somewhere better though.
 	//Name, class, health, level, exp, strength, defense, speed, dexterity, inventory object
