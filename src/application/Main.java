@@ -23,7 +23,9 @@ public class Main extends Application {
 	//Added by Patrick
 	//Global player for ease of manipulation. Probably should be placed somewhere better though.
 	//Name, class, health, level, exp, strength, defense, speed, dexterity, inventory object
-	public static Player playerChar = new Player("Placeholder", "noClass", 100, 1, 0, 0, 0, 0, 0, 0, null);
+	//Current default - Health = 100 and level = 1
+	//Everything else is zeroed
+	public static Player playerChar = new Player("Placeholder", "noClass", 100, 100, 0, 1, 0, 0, 0, 0, null);
 	
 	//Temp Monster
 	public static Player monster = new Player("Placeholder", "noClass", 10, 10, 0, 0, 0, 0, 0, 0, null);

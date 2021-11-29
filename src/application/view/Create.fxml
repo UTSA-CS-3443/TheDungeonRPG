@@ -23,9 +23,9 @@
             <Font name="Franklin Gothic Medium" size="48.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="337.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attributes">
+      <Text fill="WHITE" layoutX="28.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attributes">
          <font>
-            <Font name="Franklin Gothic Medium" size="48.0" />
+            <Font size="54.0" />
          </font>
       </Text>
       <Text fill="WHITE" layoutX="32.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Strength">
@@ -132,5 +132,15 @@
             <Font size="30.0" />
          </font>
       </Label>
+      <Text fill="WHITE" layoutX="530.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stat Points">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+      <Text fx:id="customPoints" fill="WHITE" layoutX="605.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5/5">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

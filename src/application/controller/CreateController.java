@@ -43,6 +43,14 @@ public class CreateController implements EventHandler<ActionEvent> {
     
     @FXML private Label labelError;
     
+    @FXML private Text customPoints;
+
+    private int minStr = 0;
+    private int minDef = 0;
+    private int minSpd = 0;
+    private int minDex = 0;
+    private int statPts = 5;
+    private int maxPts = 5;
 
     @FXML void classSelected(ActionEvent event) {
     	
@@ -73,11 +81,20 @@ public class CreateController implements EventHandler<ActionEvent> {
     	Main.playerChar.setSpd(5);
     	Main.playerChar.setDex(0);
     	
+    	minStr = 10;
+    	minDef = 10;
+    	minSpd = 5;
+    	minDex = 0;
+    	
     	strengthCount.setText(Integer.toString(Main.playerChar.getStr()));
     	defenseCount.setText(Integer.toString(Main.playerChar.getDef()));
     	speedCount.setText(Integer.toString(Main.playerChar.getSpd()));
     	dexterityCount.setText(Integer.toString(Main.playerChar.getDex()));
 
+    	//Reset stat points
+    	statPts = 5;
+    	customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    	
     }
     
     @FXML void hunterSelected(ActionEvent event) {
@@ -91,116 +108,251 @@ public class CreateController implements EventHandler<ActionEvent> {
     	Main.playerChar.setSpd(10);
     	Main.playerChar.setDex(10);
     	
+    	minStr = 0;
+    	minDef = 5;
+    	minSpd = 10;
+    	minDex = 10;
+    	
     	strengthCount.setText(Integer.toString(Main.playerChar.getStr()));
     	defenseCount.setText(Integer.toString(Main.playerChar.getDef()));
     	speedCount.setText(Integer.toString(Main.playerChar.getSpd()));
     	dexterityCount.setText(Integer.toString(Main.playerChar.getDex()));
     	
+    	//Reset stat points
+    	statPts = 5;
+    	customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
     }
-    
+ 
 
     @FXML void strengthDecPressed(ActionEvent event) {
     	
     	int strength = Integer.parseInt(strengthCount.getText());
+    	
+    	
+    	//Check if there are any statPts left AND that stat is greater than its minimum value
+    	if(statPts < maxPts && strength > minStr) {
+    		//If so then decrement the stat and increment the statPts;
+    		++statPts;
+    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    		--strength;
+    		strengthCount.setText(Integer.toString(strength));
+    	}
+    	
+    	
+    	
+    	
+    	
+    	/*
     	//Check if stat is non-positive 
-    	if(Integer.parseInt(strengthCount.getText()) - 1 <= 0) {
+    	if(Integer.parseInt(strengthCount.getText()) - 1 <= minStr) {
     		System.out.println("Stats cannot be set lower than 0!");
-    		strengthCount.setText("0");
+    		strengthCount.setText(Integer.toString(minStr));
+    		
+    		customPoints.setText(Integer.toString(maxPts) + "/" + Integer.toString(maxPts));
+
     	}
     	else {
     		strengthCount.setText(Integer.toString(--strength));
+    		++statPts;
+    		if(statPts > maxPts ) {
+    			System.out.printf("Cannot exceed %d total points.\n", maxPts);
+    			statPts = 5;
+    		}
+    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
     	}
-
+    	
+    	*/
     }
     
     @FXML void strengthIncPressed(ActionEvent event) {
     	int strength = Integer.parseInt(strengthCount.getText());
     	
+    	//Check if there are any statPts left AND that stat is greater than its minimum value
+    	if(statPts > 0) {
+    		//If so then decrement the stat and increment the statPts;
+    		--statPts;
+    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    		++strength;
+    		strengthCount.setText(Integer.toString(strength));
+    	}
+    	
+    	
+    	
+    	
+    	/*
     	//Check if stat is non-positive 
-    	if(Integer.parseInt(strengthCount.getText()) + 1 <= 0) {
+    	if(statPts == 0) {
+    		System.out.println("Stat points cannot be set lower than 0.");
+    		customPoints.setText(Integer.toString(0) + "/" + Integer.toString(maxPts));
+    	}
+    	else if(Integer.parseInt(strengthCount.getText()) + 1 <= minStr) {
     		System.out.println("Stats cannot be set lower than 0!");
-    		strengthCount.setText("0");
+    		strengthCount.setText(Integer.toString(minStr));
+    		
+    		customPoints.setText(Integer.toString(0) + "/" + Integer.toString(maxPts));
+
     	}
     	else {
     		strengthCount.setText(Integer.toString(++strength));
+    		--statPts;
+    		if(statPts > maxPts ) {
+    			System.out.printf("Cannot exceed %d total points.\n", maxPts);
+    			statPts = 5;
+    		}
+    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
     	}
+    	*/
 
     }
 
     @FXML void defenseDecPressed(ActionEvent event) {
     	int defense = Integer.parseInt(defenseCount.getText());
-    	//Check if stat is non-positive 
-    	if(Integer.parseInt(defenseCount.getText()) - 1 <= 0) {
+    	//Check if stat is able to be decreased and it's not below the minimum allowed defense for the class
+
+
+    	//Check if there are any statPts left AND that stat is greater than its minimum value
+    	if(statPts < maxPts && defense > minDef) {
+    		//If so then decrement the stat and increment the statPts;
+    		++statPts;
+    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    		--defense;
+    		defenseCount.setText(Integer.toString(defense));
+    	}
+    	
+    	/*
+    	if(Integer.parseInt(defenseCount.getText()) - 1 <= minDef) {
     		System.out.println("Stats cannot be set lower than 0!");
-    		defenseCount.setText("0");
+    		defenseCount.setText(Integer.toString(minDef));
     	}
     	else {
     		defenseCount.setText(Integer.toString(--defense));
     	}
+    	*/
+    	
     }
     
     @FXML void defenseIncPressed(ActionEvent event) {
     	int defense = Integer.parseInt(defenseCount.getText());
     	
+    	//Check if there are any statPts left AND that stat is greater than its minimum value
+    	if(statPts > 0) {
+    		//If so then decrement the stat and increment the statPts;
+    		--statPts;
+    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    		++defense;
+    		defenseCount.setText(Integer.toString(defense));
+    	}
+    	
+    	/*
     	//Check if stat is non-positive 
-    	if(Integer.parseInt(defenseCount.getText()) + 1 <= 0) {
+    	if(Integer.parseInt(defenseCount.getText()) + 1 <= minDef) {
     		System.out.println("Stats cannot be set lower than 0!");
-    		defenseCount.setText("0");
+    		defenseCount.setText(Integer.toString(minDef));
     	}
     	else {
     		defenseCount.setText(Integer.toString(++defense));
     	}
 
+    	 */
     }
 
     @FXML void speedDecPressed(ActionEvent event) {
     	int speed = Integer.parseInt(speedCount.getText());
+    	
+    	
+    	
+    	//Check if there are any statPts left AND that stat is greater than its minimum value
+    	if(statPts < maxPts && speed > minSpd) {
+    		//If so then decrement the stat and increment the statPts;
+    		++statPts;
+    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    		--speed;
+    		speedCount.setText(Integer.toString(speed));
+    	}
+    	
+    	/*
     	//Check if stat is non-positive 
-    	if(Integer.parseInt(speedCount.getText()) - 1 <= 0) {
+    	if(Integer.parseInt(speedCount.getText()) - 1 <= minSpd) {
     		System.out.println("Stats cannot be set lower than 0!");
-    		speedCount.setText("0");
+    		speedCount.setText(Integer.toString(minSpd));
     	}
     	else {
     		speedCount.setText(Integer.toString(--speed));
     	}
+    	*/
     }
     
     @FXML void speedIncPressed(ActionEvent event) {
     	int speed = Integer.parseInt(speedCount.getText());
     	
+    	
+    	
+    	if(statPts > 0) {
+    		//If so then decrement the stat and increment the statPts;
+    		--statPts;
+    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    		++speed;
+    		speedCount.setText(Integer.toString(speed));
+    	}
+    	
+    	/*
     	//Check if stat is non-positive 
-    	if(Integer.parseInt(speedCount.getText()) + 1 <= 0) {
+    	if(Integer.parseInt(speedCount.getText()) + 1 <= minSpd) {
     		System.out.println("Stats cannot be set lower than 0!");
-    		speedCount.setText("0");
+    		speedCount.setText(Integer.toString(minSpd));
     	}
     	else {
     		speedCount.setText(Integer.toString(++speed));
     	}
+    	*/
     }
 
     @FXML void dexterityDecPressed(ActionEvent event) {
     	int dexterity = Integer.parseInt(dexterityCount.getText());
+    	
+    	
+    	//Check if there are any statPts left AND that stat is greater than its minimum value
+    	if(statPts < maxPts && dexterity > minDex) {
+    		//If so then decrement the stat and increment the statPts;
+    		++statPts;
+    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    		--dexterity;
+    		dexterityCount.setText(Integer.toString(dexterity));
+    	}
+    	
+    	/*
     	//Check if stat is non-positive 
-    	if(Integer.parseInt(dexterityCount.getText()) - 1 <= 0) {
-    		System.out.println("Stats cannot be set lower than 0!");
-    		dexterityCount.setText("0");
+    	if(Integer.parseInt(dexterityCount.getText()) - 1 <= minDex) {
+    		System.out.printf("Stats cannot be set lower than %d!", minDex);
+    		dexterityCount.setText(Integer.toString(minDex));
     	}
     	else {
     		dexterityCount.setText(Integer.toString(--dexterity));
     	}
+    	*/
     }
 
     @FXML void dexterityIncPressed(ActionEvent event) {
     	int dexterity = Integer.parseInt(dexterityCount.getText());
     	
+    	if(statPts > 0) {
+    		//If so then decrement the stat and increment the statPts;
+    		--statPts;
+    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    		++dexterity;
+    		dexterityCount.setText(Integer.toString(dexterity));
+    	}
+    	
+    	/*
     	//Check if stat is non-positive 
-    	if(Integer.parseInt(dexterityCount.getText()) + 1 <= 0) {
-    		System.out.println("Stats cannot be set lower than 0!");
-    		dexterityCount.setText("0");
+    	if(Integer.parseInt(dexterityCount.getText()) + 1 <= minDex) {
+    		System.out.printf("Stats cannot be set lower than %d!", minDex);
+    		dexterityCount.setText(Integer.toString(minDex));
     	}
     	else {
     		dexterityCount.setText(Integer.toString(++dexterity));
     	}
+    	*/
     }
   
     @FXML void submitPressed(ActionEvent event) {
