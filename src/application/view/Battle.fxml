@@ -69,12 +69,12 @@
             <Font name="Franklin Gothic Medium" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="defendButton" layoutX="134.0" layoutY="582.0" mnemonicParsing="false" onAction="#defendPressed" text="DEFEND">
+      <Button fx:id="defendButton" layoutX="134.0" layoutY="582.0" mnemonicParsing="false" onAction="#defendPressed" text="DEFEND" visible="false">
          <font>
             <Font name="Franklin Gothic Medium" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="abilityButton" layoutX="496.0" layoutY="482.0" mnemonicParsing="false" onAction="#abilityPressed" prefHeight="66.0" prefWidth="176.0" text="ABILITY">
+      <Button fx:id="abilityButton" layoutX="496.0" layoutY="482.0" mnemonicParsing="false" onAction="#abilityPressed" prefHeight="66.0" prefWidth="176.0" text="ABILITY" visible="false">
          <font>
             <Font name="Franklin Gothic Medium" size="36.0" />
          </font>
