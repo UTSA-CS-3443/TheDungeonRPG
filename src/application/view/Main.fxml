@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -9,24 +10,29 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: black; -fx-border-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
    <children>
-      <Text fill="WHITE" layoutX="342.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The">
+      <ImageView fitHeight="800.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/stone_wall.png" />
+         </image>
+      </ImageView>
+      <Text fill="#faf402" layoutX="342.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The">
+         <font>
+            <Font name="System Bold" size="72.0" />
+         </font>
+      </Text>
+      <Text fill="#faf402" layoutX="261.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dungeon">
          <font>
             <Font name="Franklin Gothic Medium" size="72.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="261.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dungeon">
+      <Text fill="#faf402" layoutX="342.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RPG">
          <font>
             <Font name="Franklin Gothic Medium" size="72.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="342.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RPG">
+      <Text fill="#98ff9c" layoutX="284.0" layoutY="778.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brought To You By.... The A-Team">
          <font>
-            <Font name="Franklin Gothic Medium" size="72.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="432.0" layoutY="779.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brought To You By.... The A-Team">
-         <font>
-            <Font size="24.0" />
+            <Font size="30.0" />
          </font>
       </Text>
       <Button fx:id="startButton" layoutX="229.0" layoutY="470.0" mnemonicParsing="false" onAction="#startButtonPressed" style="-fx-background-radius: 24;" text="Click To Start">
