@@ -88,11 +88,14 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
 
 	@FXML
 	void runPressed(ActionEvent event) {
+		
+		Main.status = "Defeat";
+		
 		try {
 
-			Parent root = FXMLLoader.load(getClass().getResource("../view/Room.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../view/End.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
-			Main.stage.setTitle("The Dungeon RPG - The Dungeon");
+			Main.stage.setTitle("The Dungeon RPG - Defeated");
 			Main.stage.show();
 
 		}

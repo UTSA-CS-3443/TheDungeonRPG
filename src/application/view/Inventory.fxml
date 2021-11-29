@@ -113,5 +113,10 @@
             <Font name="Franklin Gothic Medium" size="24.0" />
          </font>
       </Button>
+      <Button fx:id="backToBattle" layoutX="272.0" layoutY="282.0" mnemonicParsing="false" onAction="#backToBattlePressed" prefHeight="39.0" prefWidth="256.0" text="Back to battle">
+         <font>
+            <Font name="Franklin Gothic Medium" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

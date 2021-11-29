@@ -23,6 +23,7 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
     @FXML private TextField curExp;
     @FXML private TextField nextLevel;
     
+    @FXML private Button backToBattle;
     @FXML private Button item1;
     @FXML private Button item2;
     @FXML private Button item3;
@@ -448,6 +449,25 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
     	}
     	
     	// if empty, do nothing
+    }
+    
+    /**
+	 * Method executed when the backToBattle Button object is pressed
+	 * 
+	 * @param - default ActionEvent object representation of Button object being pressed
+	 */
+    @FXML void backToBattlePressed(ActionEvent event) {
+    	try {
+			Parent root = FXMLLoader.load(getClass().getResource("../view/Battle.fxml"));
+			Main.stage.setScene(new Scene(root, 800, 800));
+			Main.stage.setTitle("The Dungeon RPG - FIGHT");
+			Main.stage.show();
+			
+		} 
+    	
+    	catch(Exception e) {
+			e.printStackTrace();
+		}
     }    
     
     //Javadoc auto-populated due to @Override tag
