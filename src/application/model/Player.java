@@ -22,11 +22,10 @@ public class Player {
 	//dexterity
 	public int dex;
 	
-	//TESTCOMMENT FIXME New update
-	//Player's inventory as Inventory object
+	//inventory - arraylist of strings
 	public Inventory inventory;
 	
-	public  Player(String userName, String charClass, int currHealth, int maxHealth, int level, int exp, int strength, int defense, int spd,  int dexterity, Inventory inventory)
+	public Player(String userName, String charClass, int currHealth, int maxHealth, int level, int exp, int strength, int defense, int spd,  int dexterity, Inventory inventory)
 	{
 		this.name = userName;
 		this.charClass = charClass;
@@ -53,6 +52,38 @@ public class Player {
 		}
 	}
 	
+	
+	
+	/**
+	 * Initialize a character's inventory based on class
+	 * 
+	 */
+	public void initializeInventory() {
+				/* Valid potions as of Dec 1
+				"Potion",
+				"Mid potion",
+				"Max potion",
+				"Strength up",
+				"Defense up",
+				"Speed up",
+				"Dexterity up"//, // remove first comment forwardslashes before adding new item
+ 				*/
+		
+		
+		//Warrior class gets Potion
+		//Str pot
+		//Str pot
+		if(this.charClass.equals("Warrior")) {
+			this.inventory.addItem("Potion");
+			this.inventory.addItem("Strength up");
+			this.inventory.addItem("Strength up");
+		}
+		else if(this.charClass == "Warrior") {
+			this.inventory.addItem("Potion");
+			this.inventory.addItem("Defense up");
+			this.inventory.addItem("Defense up");
+		}
+	}
 	
 	/**
 	 * @return the name

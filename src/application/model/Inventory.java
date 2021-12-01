@@ -42,6 +42,8 @@ public class Inventory {
 	public void addItem( String itemName ) {
 		// only add item if itemList.size() < 10 ... 10 is max inventory
 		if( itemList.size() < 10 ) {
+			
+
 			String itemNameValid = "";
 			int i;
 			
@@ -65,7 +67,9 @@ public class Inventory {
 			}
 			
 			// default if invalid name given
-			if( i <= listValidItems.size() ) {
+			//if( i <= listValidItems.size() ) {
+			//NOTE - Fixed bug where all potions/items ended up being generic "Potion" - Patrick
+			if( i <= listValidItems.size() && itemNameValid.equals("") ) {
 				itemNameValid = "Potion";
 			}
 			

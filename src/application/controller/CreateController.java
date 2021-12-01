@@ -95,6 +95,9 @@ public class CreateController implements EventHandler<ActionEvent> {
     	statPts = 5;
     	customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
     	
+    	//FIXME
+    	Main.playerChar.initializeInventory();
+    	
     }
     
     @FXML void hunterSelected(ActionEvent event) {
@@ -121,6 +124,9 @@ public class CreateController implements EventHandler<ActionEvent> {
     	//Reset stat points
     	statPts = 5;
     	customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    	
+    	
+    	Main.playerChar.initializeInventory();
     }
  
 
@@ -137,31 +143,7 @@ public class CreateController implements EventHandler<ActionEvent> {
     		--strength;
     		strengthCount.setText(Integer.toString(strength));
     	}
-    	
-    	
-    	
-    	
-    	
-    	/*
-    	//Check if stat is non-positive 
-    	if(Integer.parseInt(strengthCount.getText()) - 1 <= minStr) {
-    		System.out.println("Stats cannot be set lower than 0!");
-    		strengthCount.setText(Integer.toString(minStr));
-    		
-    		customPoints.setText(Integer.toString(maxPts) + "/" + Integer.toString(maxPts));
 
-    	}
-    	else {
-    		strengthCount.setText(Integer.toString(--strength));
-    		++statPts;
-    		if(statPts > maxPts ) {
-    			System.out.printf("Cannot exceed %d total points.\n", maxPts);
-    			statPts = 5;
-    		}
-    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
-    	}
-    	
-    	*/
     }
     
     @FXML void strengthIncPressed(ActionEvent event) {
@@ -177,31 +159,6 @@ public class CreateController implements EventHandler<ActionEvent> {
     	}
     	
     	
-    	
-    	
-    	/*
-    	//Check if stat is non-positive 
-    	if(statPts == 0) {
-    		System.out.println("Stat points cannot be set lower than 0.");
-    		customPoints.setText(Integer.toString(0) + "/" + Integer.toString(maxPts));
-    	}
-    	else if(Integer.parseInt(strengthCount.getText()) + 1 <= minStr) {
-    		System.out.println("Stats cannot be set lower than 0!");
-    		strengthCount.setText(Integer.toString(minStr));
-    		
-    		customPoints.setText(Integer.toString(0) + "/" + Integer.toString(maxPts));
-
-    	}
-    	else {
-    		strengthCount.setText(Integer.toString(++strength));
-    		--statPts;
-    		if(statPts > maxPts ) {
-    			System.out.printf("Cannot exceed %d total points.\n", maxPts);
-    			statPts = 5;
-    		}
-    		customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
-    	}
-    	*/
 
     }
 
@@ -219,15 +176,7 @@ public class CreateController implements EventHandler<ActionEvent> {
     		defenseCount.setText(Integer.toString(defense));
     	}
     	
-    	/*
-    	if(Integer.parseInt(defenseCount.getText()) - 1 <= minDef) {
-    		System.out.println("Stats cannot be set lower than 0!");
-    		defenseCount.setText(Integer.toString(minDef));
-    	}
-    	else {
-    		defenseCount.setText(Integer.toString(--defense));
-    	}
-    	*/
+
     	
     }
     
@@ -243,17 +192,7 @@ public class CreateController implements EventHandler<ActionEvent> {
     		defenseCount.setText(Integer.toString(defense));
     	}
     	
-    	/*
-    	//Check if stat is non-positive 
-    	if(Integer.parseInt(defenseCount.getText()) + 1 <= minDef) {
-    		System.out.println("Stats cannot be set lower than 0!");
-    		defenseCount.setText(Integer.toString(minDef));
-    	}
-    	else {
-    		defenseCount.setText(Integer.toString(++defense));
-    	}
 
-    	 */
     }
 
     @FXML void speedDecPressed(ActionEvent event) {
@@ -270,16 +209,7 @@ public class CreateController implements EventHandler<ActionEvent> {
     		speedCount.setText(Integer.toString(speed));
     	}
     	
-    	/*
-    	//Check if stat is non-positive 
-    	if(Integer.parseInt(speedCount.getText()) - 1 <= minSpd) {
-    		System.out.println("Stats cannot be set lower than 0!");
-    		speedCount.setText(Integer.toString(minSpd));
-    	}
-    	else {
-    		speedCount.setText(Integer.toString(--speed));
-    	}
-    	*/
+
     }
     
     @FXML void speedIncPressed(ActionEvent event) {
@@ -295,16 +225,7 @@ public class CreateController implements EventHandler<ActionEvent> {
     		speedCount.setText(Integer.toString(speed));
     	}
     	
-    	/*
-    	//Check if stat is non-positive 
-    	if(Integer.parseInt(speedCount.getText()) + 1 <= minSpd) {
-    		System.out.println("Stats cannot be set lower than 0!");
-    		speedCount.setText(Integer.toString(minSpd));
-    	}
-    	else {
-    		speedCount.setText(Integer.toString(++speed));
-    	}
-    	*/
+
     }
 
     @FXML void dexterityDecPressed(ActionEvent event) {
@@ -320,16 +241,7 @@ public class CreateController implements EventHandler<ActionEvent> {
     		dexterityCount.setText(Integer.toString(dexterity));
     	}
     	
-    	/*
-    	//Check if stat is non-positive 
-    	if(Integer.parseInt(dexterityCount.getText()) - 1 <= minDex) {
-    		System.out.printf("Stats cannot be set lower than %d!", minDex);
-    		dexterityCount.setText(Integer.toString(minDex));
-    	}
-    	else {
-    		dexterityCount.setText(Integer.toString(--dexterity));
-    	}
-    	*/
+
     }
 
     @FXML void dexterityIncPressed(ActionEvent event) {
@@ -343,16 +255,7 @@ public class CreateController implements EventHandler<ActionEvent> {
     		dexterityCount.setText(Integer.toString(dexterity));
     	}
     	
-    	/*
-    	//Check if stat is non-positive 
-    	if(Integer.parseInt(dexterityCount.getText()) + 1 <= minDex) {
-    		System.out.printf("Stats cannot be set lower than %d!", minDex);
-    		dexterityCount.setText(Integer.toString(minDex));
-    	}
-    	else {
-    		dexterityCount.setText(Integer.toString(++dexterity));
-    	}
-    	*/
+
     }
   
     @FXML void submitPressed(ActionEvent event) {

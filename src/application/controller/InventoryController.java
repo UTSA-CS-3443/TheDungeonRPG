@@ -159,6 +159,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 		
 		//set the inventory button names
 		loadInventoryList( Main.playerChar.inventory.getItemList() );
+		
+
 	}
     
 	/**
