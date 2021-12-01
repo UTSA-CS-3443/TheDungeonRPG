@@ -38,7 +38,11 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 	private Button rightButton;
 
 	@FXML
+	
+	// Player Choose to Fight
 	void fightPressed(ActionEvent event) {
+		
+		// Check if monster is present or not defeated
 		if (Dungeon.curMonster.equals("NULL")) {
 			roomDesc.setText("There are no monsters here, you may move on to the next room.");
 		}
@@ -61,19 +65,13 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 	}
 
 	@FXML
-	void lootPressed(ActionEvent event) {
-
-		// TODO
-		// Check if there's loot?
-		// Perhaps it can backfire?
-
-	}
-
-	@FXML
 	void upPressed(ActionEvent event) {
+		
+		// Check if monster has been defeated
 		if (Dungeon.monsterDefeated == false)
 			roomDesc.setText("You must first pass the trial before moving on!");
 
+		// If monster defeated, set it back to not defeated and loads next room.
 		else if (Dungeon.exit.equals("North")) {
 			Dungeon.monsterDefeated = false;
 			Dungeon.curRoom += 1;
@@ -81,15 +79,19 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 			roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
 		}
 
+		// Invalid direction
 		else
 			roomDesc.setText("There is no path this way, please try another direction.");
 	}
 
 	@FXML
 	void leftPressed(ActionEvent event) {
+		
+		// Check if monster has been defeated
 		if (Dungeon.monsterDefeated == false)
 			roomDesc.setText("You must first pass the trial before moving on!");
 
+		// If monster defeated, set it back to not defeated and loads next room.
 		else if (Dungeon.exit.equals("West")) {
 			Dungeon.monsterDefeated = false;
 			Dungeon.curRoom += 1;
@@ -97,12 +99,15 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 			roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
 		}
 
+		// Invalid direction
 		else
 			roomDesc.setText("There is no path this way, please try another direction.");
 	}
 
 	@FXML
 	void downPressed(ActionEvent event) {
+		
+		// If player reaches Final Room, the player goes South to exit Dungeon and Win
 		if (Main.status.equals("Victory")) {
 			try {
 				Parent root = FXMLLoader.load(getClass().getResource("../view/End.fxml"));
@@ -117,9 +122,11 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 			}
 		}
 
+		// Check if monster has been defeated
 		if (Dungeon.monsterDefeated == false)
 			roomDesc.setText("You must first pass the trial before moving on!");
 
+		// If monster defeated, set it back to not defeated and loads next room.
 		else if (Dungeon.exit.equals("South")) {
 			Dungeon.monsterDefeated = false;
 			Dungeon.curRoom += 1;
@@ -127,15 +134,19 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 			roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
 		}
 
+		// Invalid direction
 		else
 			roomDesc.setText("There is no path this way, please try another direction.");
 	}
 
 	@FXML
 	void rightPressed(ActionEvent event) {
+		
+		// Check if monster has been defeated
 		if (Dungeon.monsterDefeated == false)
 			roomDesc.setText("You must first pass the trial before moving on!");
 
+		// If monster defeated, set it back to not defeated and loads next room.
 		else if (Dungeon.exit.equals("East")) {
 			Dungeon.monsterDefeated = false;
 			Dungeon.curRoom += 1;
@@ -143,6 +154,7 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 			roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
 		}
 
+		// Invalid direction
 		else
 			roomDesc.setText("There is no path this way, please try another direction.");
 	}
@@ -157,13 +169,7 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 	public void initialize(URL location, ResourceBundle resources) {
 		Dungeon.loadRoom(Dungeon.curRoom);
 		roomDesc.setText(Dungeon.getRoomList().get(Dungeon.curRoom - 1).toString());
-		
+
 		labelText.setVisible(false);
-
-		if (Dungeon.curMonster.equals("NULL")) ;
-		else
-			if(Dungeon.monsterDefeated == true)
-				labelText.setVisible(true);
-
 	}
 }
