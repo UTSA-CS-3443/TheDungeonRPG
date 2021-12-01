@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="800.0" maxWidth="800.0" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.EndController">
+<AnchorPane maxHeight="800.0" maxWidth="800.0" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EndController">
    <children>
-      <Label fx:id="statusText" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="166.0" maxHeight="88.0" maxWidth="846.0" prefHeight="88.0" prefWidth="846.0" text="YOU WERE DEFEATED!" textAlignment="CENTER" textFill="#cd2222">
+      <ImageView fx:id="background" fitHeight="800.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/graveyard.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="statusText" alignment="CENTER" contentDisplay="CENTER" layoutX="62.0" layoutY="101.0" maxHeight="137.0" maxWidth="846.0" prefHeight="137.0" prefWidth="677.0" text="YOU WERE DEFEATED!" textAlignment="CENTER" textFill="#cd2222">
          <font>
             <Font size="74.0" />
          </font>
       </Label>
-      <Button layoutX="320.0" layoutY="420.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="238.0" text="TRY AGAIN">
+      <Button fx:id="retryButton" layoutX="281.0" layoutY="371.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="238.0" text="TRY AGAIN">
          <font>
             <Font size="32.0" />
          </font>
