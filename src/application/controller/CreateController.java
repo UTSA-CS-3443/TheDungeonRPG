@@ -373,11 +373,7 @@ public class CreateController implements EventHandler<ActionEvent> {
 		}
     }
 
-	@Override
-	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	//Check if character is valid
 	//Has custom name
@@ -410,5 +406,10 @@ public class CreateController implements EventHandler<ActionEvent> {
 		}
 	}
 	
+	@Override
+	public void handle(ActionEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

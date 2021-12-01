@@ -6,8 +6,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -15,7 +20,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
-public class EndController implements Initializable {
+public class EndController implements EventHandler<ActionEvent>, Initializable {
 
 	@FXML
 	private Label statusText;
@@ -64,8 +69,25 @@ public class EndController implements Initializable {
 
 
 		}
+	}
+	
+	@FXML void handleRetry(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
+			Main.stage.setScene(new Scene(root, 800, 800));
+			Main.stage.setTitle("The Dungeon RPG - The Dungeon");
+			Main.stage.show();
+			
+		} 
+    	
+    	catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
+	@Override
+	public void handle(ActionEvent event) {
+		// TODO Auto-generated method stub
 		
-
 	}
 }

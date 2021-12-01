@@ -19,7 +19,7 @@
             <Font size="74.0" />
          </font>
       </Label>
-      <Button fx:id="retryButton" layoutX="281.0" layoutY="371.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="238.0" text="TRY AGAIN">
+      <Button fx:id="retryButton" layoutX="281.0" layoutY="371.0" mnemonicParsing="false" onAction="#handleRetry" prefHeight="88.0" prefWidth="238.0" text="TRY AGAIN">
          <font>
             <Font size="32.0" />
          </font>
