@@ -2,66 +2,133 @@ package application.model;
 
 import java.util.Random;
 
-import application.Main;
-
 public class Battle {
 	public static int health = 100;
 	static Random rand = new Random();
+	static boolean playerHit;
+	static String playerDMG;
+	static boolean monsterHit;
+	static String monsterDMG;
 
-	public static boolean attack(Player player, Player Monster) {
+	public static void attack(Player player, Player monster) {
 
-		if ((rand.nextInt() % 10) <= 5) {
-			Main.monster.currHealth -= 20;
-			// monster take 1/2 damage
-		}
-		if ((rand.nextInt() % 10) >= 5 && rand.nextInt() < 7) {
-			Main.monster.currHealth -= 25;
-			// monster takes 25 damage
-		} else {
-			Main.playerChar.currHealth -= 15;
-			// player takes damage
-			// monster takes no damage
-		}
-		if (Main.monster.currHealth <= 0) {
-			Main.playerChar.level += 1;
-			return true;
-		} else
-			return false;
-	}
+		/*
+		 * Step One: Compare the Player's Speed and the Monster's Speed to each other.
+		 * Use the difference to determine the % chance for the Player and the Monster
+		 * to hit each other.
+		 */
 
-	public static void defend(Player player, Player Monster) {
-		{
+		playerHit = true;
+		monsterHit = true;
 
-			if ((rand.nextInt() % 10) <= 5) {
-				Main.playerChar.currHealth = Main.playerChar.currHealth;
-			}
-			if ((rand.nextInt() % 10) >= 5 && rand.nextInt() < 7) {
-				Main.playerChar.currHealth = Main.playerChar.currHealth - 2;
-			} else {
-				Main.monster.currHealth = Main.monster.currHealth - 3;
-			}
-		}
-	}
-
-	public static void ability(Player player, Player Monster) {
-
-	}
-
-	// dont know if they want to take damage from running but its available just in
-	// case.
-	public static void run(Player player, Player Monster) {
-		{
-
-			if ((rand.nextInt() % 10) <= 5) {
-				Main.playerChar.currHealth = Main.playerChar.currHealth;
-			}
-			if ((rand.nextInt() % 10) >= 5 && rand.nextInt() < 7) {
-				Main.playerChar.currHealth = Main.playerChar.currHealth - 50;
-			} else {
-				Main.playerChar.currHealth = Main.playerChar.currHealth - 15;
-			}
+		// 90% Chance to Hit for Player, 10% Chance to Hit for Monster
+		if ((player.getSpd() - monster.getSpd()) >= 5) {
+			if (rand.nextInt(11) == 1)
+				playerHit = false;
+			if (rand.nextInt(11) <= 9)
+				monsterHit = false;
 		}
 
-	}
+		// 70% Chance to Hit for Player, 30% Chance to Hit for Monster
+		else if ((player.getSpd() - monster.getSpd()) >= 1) {
+			if (rand.nextInt(11) <= 3)
+				playerHit = false;
+			if (rand.nextInt(11) <= 7)
+				monsterHit = false;
+		}
 
+		// 50% Chance to Hit for Player, 50% Chance to Hit for Monster
+		else if ((player.getSpd() - monster.getSpd()) == 0) {
+			if (rand.nextInt(11) <= 5)
+				playerHit = false;
+			if (rand.nextInt(11) <= 5)
+				monsterHit = false;
+		}
+
+		// 30% Chance to Hit for Player, 70% Chance to Hit for Monster
+		else if ((player.getSpd() - monster.getSpd()) >= -4) {
+			if (rand.nextInt(11) <= 7)
+				playerHit = false;
+			if (rand.nextInt(11) <= 3)
+				monsterHit = false;
+		}
+
+		// 10% Chance to Hit for Player, 90% Chance to Hit for Monster
+		else {
+			if (rand.nextInt(11) <= 9)
+				playerHit = false;
+			if (rand.nextInt(11) == 1)
+				monsterHit = false;
+		}
+
+		if ((playerHit == false) && (monsterHit == false))
+			return;
+
+		/*
+		 * Step Two: Compare the Player's Strength and Dexterity to each other. Repeat
+		 * the process for the Monster as well. Whichever number is higher is the stat
+		 * used for attacking.
+		 */
+
+		if ((player.getStr() >= player.getDex()))
+			playerDMG = "STR";
+
+		else
+			playerDMG = "DEX";
+
+		if ((monster.getStr() >= monster.getDex()))
+			monsterDMG = "STR";
+
+		else
+			monsterDMG = "DEX";
+
+		/*
+		 * Step Three: Compare the attacking attribute for the Player and Monster to the
+		 * opposing's Defense stat to determine HP damage.
+		 */
+
+		if (playerHit) {
+			// If player is using Strength to Attack.
+			if (playerDMG.equals("STR")) {
+				if ((player.getStr() - monster.getDef()) >= 1)
+					// Monster's Current Health - (Player's Strength - Monster's Defense)
+					monster.setCurrHealth(monster.getCurrHealth() - (player.getStr() - monster.getDef()));
+				else
+					// Minimum of 1 Damage
+					monster.setCurrHealth(monster.getCurrHealth() - 1);
+			}
+
+			// If player is using Dexterity to Attack.
+			else {
+				if ((player.getDex() - monster.getDef()) >= 1)
+					// Monster's Current Health - (Player's Dexterity - Monster's Defense)
+					monster.setCurrHealth(monster.getCurrHealth() - (player.getDex() - monster.getDef()));
+				else
+					// Minimum of 1 Damage
+					monster.setCurrHealth(monster.getCurrHealth() - 1);
+			}
+		}
+
+		if (monsterHit) {
+			// If monster is using Strength to Attack.
+			if (monsterDMG.equals("STR")) {
+				if ((monster.getStr() - player.getDef()) >= 1)
+					// Player's Current Health - (Monster's Strength - Player's Defense)
+					player.setCurrHealth(player.getCurrHealth() - (monster.getStr() - player.getDef()));
+				else
+					// Minimum of 1 Damage
+					player.setCurrHealth(player.getCurrHealth() - 1);
+			}
+
+			// If monster is using Dexterity to Attack.
+			else {
+				if ((monster.getDex() - player.getDef()) >= 1)
+					// Player's Current Health - (Monter's Dexterity - Player's Defense)
+					monster.setCurrHealth(player.getCurrHealth() - (monster.getDex() - player.getDef()));
+				else
+					// Minimum of 1 Damage
+					player.setCurrHealth(player.getCurrHealth() - 1);
+			}
+		}
+	}
 }
