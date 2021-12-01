@@ -78,7 +78,7 @@ public class Player {
 			this.inventory.addItem("Strength up");
 			this.inventory.addItem("Strength up");
 		}
-		else if(this.charClass == "Warrior") {
+		else if(this.charClass == "Hunter") {
 			this.inventory.addItem("Potion");
 			this.inventory.addItem("Defense up");
 			this.inventory.addItem("Defense up");
