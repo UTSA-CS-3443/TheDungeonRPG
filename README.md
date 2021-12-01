@@ -5,9 +5,9 @@
 This is a simple JavaFX game inspired by old school text adventure games of the late 80s and early 90s. The project was done as a course group assignment using Eclipse. The files can easily be imported as a fresh Eclipse project from git, instructions below. Images are sourced and edited from the internet, credits are below.
 
 ## Tools Used
+ * JavaSE-9
  * JavaFX8_3.7
  * SceneBuilder 2.0
- * Java 8
  * Eclipse IDE
  * PhotoFlare for pixelizing images
 
