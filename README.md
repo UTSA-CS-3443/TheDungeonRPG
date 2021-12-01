@@ -9,6 +9,7 @@ This is a simple JavaFX game inspired by old school text adventure games of the 
  * SceneBuilder 2.0
  * Java 8
  * Eclipse IDE
+ * PhotoFlare for pixelizing images
 
 ## Installation
 Using Eclipse IDE (https://www.eclipse.org/ide/)...
