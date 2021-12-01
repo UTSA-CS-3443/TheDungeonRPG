@@ -117,6 +117,8 @@
         <items>
           <MenuItem fx:id="warriorItem" mnemonicParsing="false" onAction="#warriorSelected" text="Warrior" />
           <MenuItem fx:id="hunterItem" mnemonicParsing="false" onAction="#hunterSelected" text="Hunter" />
+            <MenuItem fx:id="Knight" mnemonicParsing="false" onAction="#knightSelected" text="Knight" />
+            <MenuItem fx:id="custom" mnemonicParsing="false" onAction="#customSelected" text="Custom" />
         </items>
          <font>
             <Font size="24.0" />
@@ -127,7 +129,7 @@
             <Font size="36.0" />
          </font>
       </Button>
-      <Label fx:id="labelError" layoutX="35.0" layoutY="238.0" prefHeight="56.0" prefWidth="699.0" text="Label" textFill="#fbff00" visible="false">
+      <Label fx:id="labelError" layoutX="32.0" layoutY="68.0" prefHeight="56.0" prefWidth="752.0" text="Label" textFill="#fbff00" visible="false">
          <font>
             <Font size="30.0" />
          </font>
@@ -142,5 +144,10 @@
             <Font size="40.0" />
          </font>
       </Text>
+      <TextField fx:id="customClassName" layoutX="190.0" layoutY="244.0" onKeyTyped="#classNameUpdated" prefHeight="22.0" prefWidth="313.0" promptText="&lt;Enter Class Name&gt;" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

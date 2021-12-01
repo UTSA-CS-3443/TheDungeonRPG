@@ -83,6 +83,16 @@ public class Player {
 			this.inventory.addItem("Defense up");
 			this.inventory.addItem("Defense up");
 		}
+		else if(this.charClass == "Knight") {
+			this.inventory.addItem("Potion");
+			this.inventory.addItem("Defense up");
+			this.inventory.addItem("Strength up");
+		}
+		else {
+			this.inventory.addItem("Potion");
+			this.inventory.addItem("Potion");
+		}
+		
 	}
 	
 	/**

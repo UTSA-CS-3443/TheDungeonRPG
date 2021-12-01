@@ -1,5 +1,9 @@
 package application.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,6 +22,7 @@ import javafx.scene.text.Text;
 public class CreateController implements EventHandler<ActionEvent> {
 
 	@FXML private TextField charName;
+	@FXML private TextField customClassName;
 	
 	@FXML private SplitMenuButton classSelect;
 	@FXML private MenuItem warriorItem;
@@ -52,6 +57,12 @@ public class CreateController implements EventHandler<ActionEvent> {
     private int statPts = 5;
     private int maxPts = 5;
 
+    //Records if current character is custom class or not
+    private boolean isCustom = false;
+    
+    //list storing valid classes
+    List<String> validClasses = Arrays.asList("Warrior", "Knight", "Hunter");
+    
     @FXML void classSelected(ActionEvent event) {
     	
     }
@@ -63,8 +74,28 @@ public class CreateController implements EventHandler<ActionEvent> {
 
     }
     
+    @FXML void classNameUpdated(KeyEvent event) {
+    	
+    	if(customClassName.getText().length() < 15) {
+    		labelError.setVisible(false);
+        	System.out.println(customClassName.getText());
+        	
+        	classSelect.setText(customClassName.getText());
+        	Main.playerChar.charClass = customClassName.getText();
+    	}
+    	else {
+    		labelError.setText("Class name too long!");
+    		labelError.setVisible(true);
+    	}
+
+
+    }
+    
     @FXML void warriorSelected(ActionEvent event) {
+    	
+    	isCustom = false;
     	System.out.println("WARRIOR");
+    	customClassName.setVisible(false);
     	classSelect.setText("Warrior");
     	Main.playerChar.setCharClass("Warrior");
     	
@@ -101,7 +132,9 @@ public class CreateController implements EventHandler<ActionEvent> {
     }
     
     @FXML void hunterSelected(ActionEvent event) {
+    	isCustom = false;
     	System.out.println("HUNTER");
+    	customClassName.setVisible(false);
     	classSelect.setText("Hunter");
     	Main.playerChar.setCharClass("Hunter");
 
@@ -128,7 +161,69 @@ public class CreateController implements EventHandler<ActionEvent> {
     	
     	Main.playerChar.initializeInventory();
     }
- 
+    @FXML void knightSelected(ActionEvent event) {
+    	isCustom = false;
+    	System.out.println("KNIGHT");
+    	customClassName.setVisible(false);
+    	classSelect.setText("Knight");
+    	Main.playerChar.setCharClass("Knight");
+
+    	
+    	Main.playerChar.setStr(8);
+    	Main.playerChar.setDef(10);
+    	Main.playerChar.setSpd(4);
+    	Main.playerChar.setDex(3);
+    	
+    	minStr = 8;
+    	minDef = 10;
+    	minSpd = 4;
+    	minDex = 3;
+    	
+    	strengthCount.setText(Integer.toString(Main.playerChar.getStr()));
+    	defenseCount.setText(Integer.toString(Main.playerChar.getDef()));
+    	speedCount.setText(Integer.toString(Main.playerChar.getSpd()));
+    	dexterityCount.setText(Integer.toString(Main.playerChar.getDex()));
+    	
+    	//Reset stat points
+    	statPts = 5;
+    	customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    	
+    	
+    	Main.playerChar.initializeInventory();
+    }
+    
+    @FXML void customSelected(ActionEvent event) {
+    	isCustom = true;
+    	System.out.println("CUSTOM");
+    	classSelect.setText("");
+    	customClassName.setVisible(true);
+    	//classSelect.setText("Knight");
+    	Main.playerChar.setCharClass(customClassName.getText());
+
+    	
+    	Main.playerChar.setStr(0);
+    	Main.playerChar.setDef(0);
+    	Main.playerChar.setSpd(0);
+    	Main.playerChar.setDex(0);
+    	
+    	minStr = 0;
+    	minDef = 0;
+    	minSpd = 0;
+    	minDex = 0;
+    	
+    	strengthCount.setText(Integer.toString(Main.playerChar.getStr()));
+    	defenseCount.setText(Integer.toString(Main.playerChar.getDef()));
+    	speedCount.setText(Integer.toString(Main.playerChar.getSpd()));
+    	dexterityCount.setText(Integer.toString(Main.playerChar.getDex()));
+    	
+    	//Reset stat points
+    	maxPts = 30;
+    	statPts = 30;
+    	customPoints.setText(Integer.toString(statPts) + "/" + Integer.toString(maxPts));
+    	
+    	
+    	Main.playerChar.initializeInventory();
+    }
 
     @FXML void strengthDecPressed(ActionEvent event) {
     	
@@ -263,8 +358,6 @@ public class CreateController implements EventHandler<ActionEvent> {
     	//Check if character has name and class set. If not, display error
     	//Do not allow program to proceed
     	if(!isValidChar()) {
-    		labelError.setText("Character must have a name and class!");
-    		labelError.setVisible(true);
     		return;
     	}
     	try {
@@ -290,8 +383,27 @@ public class CreateController implements EventHandler<ActionEvent> {
 	//Has custom name
 	//Has selected a class
 	public boolean isValidChar() {
-		if(Main.playerChar.getName().equals("Placeholder") || Main.playerChar.getCharClass().equals("noClass") ) {
+		if(Main.playerChar.getName().equals("Placeholder") || Main.playerChar.getCharClass().equals("noClass") && Main.playerChar.getName().length() > 0 && Main.playerChar.getCharClass().length() > 0) {
+    		labelError.setText("Character must have a name and class!");
+    		labelError.setVisible(true);
 			return false;
+		}
+		else if(isCustom) {
+			int i;
+			for(i = 0; i < validClasses.size(); ++i ) {
+				if(Main.playerChar.getCharClass().equals(validClasses.get(i))) {
+					break;
+				}
+			}
+			//Class is invalid if this is true
+			if(i < validClasses.size()) {
+	    		labelError.setText("This class already exists, pick another name.");
+	    		labelError.setVisible(true);
+				return false;
+			}
+			else {
+				return true;
+			}
 		}
 		else {
 			return true;
