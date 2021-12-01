@@ -6,6 +6,7 @@ import application.Main;
 
 public class Dungeon {
 
+	// Class Variables
 	public static ArrayList<Dungeon> roomList = new ArrayList<>();
 	public static String description;
 	public static String exit;
@@ -18,6 +19,10 @@ public class Dungeon {
 		Dungeon.exit = exit;
 	}
 
+	/*
+	 * The following room functions are added 1 at a time to an ArrayList ONLY when the user gets to the room. This prevents unnecessarily loading the rooms if the user doesn't make it far enough. While it doesn't save much
+	 * space or time at the current scale, it's designed to be scalable.
+	 */
 	public static void room1() {
 		description = "You step into the halls of past Heroes. There lies a path to the North with statues of various Heroes lining both sides. It is dark, the only light coming from some candles that sparsely populate the room."
 				+ " You get an overwhelming feeling that you are being watched, as if the Heroes of previous Ages are watching to see what will become of you. Will you pass the trials and stand as equal to them, or will you falter and"
@@ -44,9 +49,9 @@ public class Dungeon {
 		description = "You have left the dark dungeon-esque rooms behind and before you stands a room full of greenery. Vines snake their way up the walls and large oak trees are scattered throughout the room, towering almost infinititely"
 				+ " high. The ground is covered in wild grass and patches of flowers and moss. As you make your way through the room, the grass crunching beneath your heavy feet, you hear the faint sounds of footsteps somwhere in the distance."
 				+ " It's at this point you know that your next trial awaits you somewhere within the forest.\n"
-				+ "Monster: [MONSTER NAME]\n" + "Exit: North";
+				+ "Monster: Giant Spider\n" + "Exit: North";
 		exit = "North";
-		curMonster = "NULL";
+		curMonster = "Giant Spider";
 
 		roomList.add(new Dungeon(description, exit));
 	}
@@ -58,9 +63,10 @@ public class Dungeon {
 				+ "Exit: North";
 		exit = "North";
 		monsterDefeated = true;
-
-		// TODO: Add Health To Player.
 		curMonster = "NULL";
+
+		// Heals Player
+		Main.playerChar.setCurrHealth(Main.playerChar.getMaxHealth());
 
 		roomList.add(new Dungeon(description, exit));
 	}
@@ -68,9 +74,9 @@ public class Dungeon {
 	public static void room5() {
 		description = "The trees begin to fade away behind you and the darkness with it. Ahead of you bright light fills the room, streaking in from high above, as if the Sun itself was in the very room. A great pond is ahead of you, with several"
 				+ " stones leading to a central platform in the middle. You can make out in the distance that the rest is over, for your next trial stands waiting for you on the central platform.\n"
-				+ "Monster: [MONSTER NAME]\n" + "Exit: East";
+				+ "Monster: Lizard Warrior\n" + "Exit: East";
 		exit = "East";
-		curMonster = "NULL";
+		curMonster = "Lizard Warrior";
 
 		roomList.add(new Dungeon(description, exit));
 	}
@@ -79,9 +85,9 @@ public class Dungeon {
 		description = "The sound of several streams echoes throughout the room. As you survey what is ahead of, you notice that there are several rapidly moving streams between you and the next door. Small wooden bridges allow you passage to"
 				+ " cross each successive stream. You slowly make your way across the first bridge and as you do, the wood sways and creaks, but alas holds together for you to pass. You begin to wonder if you are afforded rest once again,"
 				+ " until you hear the sound of water splashing. Just ahead of you, a creature jumps forth from the water and awaits you across the next bridge.\n"
-				+ "Monster: [MONSTER NAME]\n" + "Exit: East";
+				+ "Monster: Water Demon\n" + "Exit: East";
 		exit = "East";
-		curMonster = "NULL";
+		curMonster = "Water Demon";
 
 		roomList.add(new Dungeon(description, exit));
 	}
@@ -89,10 +95,10 @@ public class Dungeon {
 	public static void room7() {
 		description = "Your clothes drip with water as you leave the previous room. Only a few steps into this new one and the heat begins to beat down on you. It's suffocating and makes it harder for you to breathe. Quickly, you try to find"
 				+ " the source of heat and it doesnt' take long. A large chasm filled with lava stands before you. The only way across is a large rope bridge. Unfortunately, you are not alone in this room as another trial awaits you. Standing"
-				+ " directly in the middle of the bridge you spot the next creature.\n" + "Monster: [MONSTER NAME]\n"
+				+ " directly in the middle of the bridge you spot the next creature.\n" + "Monster: Flame Warrior\n"
 				+ "Exit: South";
 		exit = "South";
-		curMonster = "NULL";
+		curMonster = "Flame Warrior";
 
 		roomList.add(new Dungeon(description, exit));
 	}
@@ -103,9 +109,10 @@ public class Dungeon {
 				+ "Exit: South";
 		exit = "South";
 		monsterDefeated = true;
-
-		// TODO: Add Health To Player.
 		curMonster = "NULL";
+
+		// Heals Player
+		Main.playerChar.setCurrHealth(Main.playerChar.getMaxHealth());
 
 		roomList.add(new Dungeon(description, exit));
 	}
@@ -114,9 +121,9 @@ public class Dungeon {
 		description = "The door slams shut behind you and a foreboding sense of danger fills the room. Your eyes try to adjust but the darkness is too deep and you are unable to see anything within the room. However, your ears do not fail you"
 				+ " and you can hear the sound of claws scratching against stone. 'So you've arrived Champion. Few of you ever make it this far and fewer still make it out of here alive. Prepare your final words!' The shrill voice of the monster"
 				+ " fades away, it is soon followed by rapidly moving footsteps. Suddenly, several candles light up and you are just able to see what is running towards you.\n"
-				+ "Monster: [MONSTER NAME]\n" + "Exit: West";
+				+ "Monster: Dragon Knight\n" + "Exit: West";
 		exit = "West";
-		curMonster = "NULL";
+		curMonster = "Dragon Knight";
 
 		roomList.add(new Dungeon(description, exit));
 	}
@@ -134,6 +141,7 @@ public class Dungeon {
 		roomList.add(new Dungeon(description, exit));
 	}
 
+	// Loads the next room. This function is used in RoomController.
 	public static void loadRoom(int curRoom) {
 		switch (curRoom) {
 

@@ -75,16 +75,6 @@
             <Font name="Franklin Gothic Medium" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="defendButton" disable="true" layoutX="22.0" layoutY="706.0" mnemonicParsing="false" onAction="#defendPressed" text="DEFEND" visible="false">
-         <font>
-            <Font name="Franklin Gothic Medium" size="36.0" />
-         </font>
-      </Button>
-      <Button fx:id="abilityButton" disable="true" layoutX="33.0" layoutY="628.0" mnemonicParsing="false" onAction="#abilityPressed" prefHeight="66.0" prefWidth="176.0" text="ABILITY" visible="false">
-         <font>
-            <Font name="Franklin Gothic Medium" size="36.0" />
-         </font>
-      </Button>
       <Button fx:id="runButton" layoutX="454.0" layoutY="459.0" mnemonicParsing="false" onAction="#runPressed" prefHeight="68.0" prefWidth="207.0" text="RUN">
          <font>
             <Font name="Franklin Gothic Medium" size="36.0" />
