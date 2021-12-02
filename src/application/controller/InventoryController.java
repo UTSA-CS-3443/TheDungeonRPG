@@ -97,49 +97,6 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
     	}
     }
     
-    /* MOVED TO Inventory.java in the useItem() method
-    public void String item ) {
-    	switch( item ) {
-    		case "Potion":
-    			// Add 2 HP
-    			Main.playerChar.setCurrHealth( Main.playerChar.getCurrHealth() + 2 );
-    			break;
-    		case "Mid potion":
-    			// Add 5 HP
-    			Main.playerChar.setCurrHealth( Main.playerChar.getCurrHealth() + 5 );
-    			break;
-    		case "Max potion":
-    			// Add 10 HP
-    			Main.playerChar.setCurrHealth( Main.playerChar.getCurrHealth() + 10 );
-    			break;
-    		case "Strength up":
-    			// Add 1 STR
-    			Main.playerChar.setStr( Main.playerChar.getStr() + 1 );
-    			break;
-    		case "Defense up":
-    			// Add 1 DEF
-    			Main.playerChar.setDef( Main.playerChar.getDef() + 1 );
-    			break;
-    		case "Speed up":
-    			// Add 1 SPD
-    			Main.playerChar.setSpd( Main.playerChar.getSpd() + 1 );
-    			break;
-    		case "Dexterity up":
-    			// Add 1 DEX
-    			Main.playerChar.setDex( Main.playerChar.getDex() + 1 );
-    			break;
-    		default:
-    			// nothing happens ... placeholder
-    			break;
-    	}
-        
-    	// Ensure any changes to not put currHealth higher than maxHealth
-       	if( Main.playerChar.getCurrHealth() > Main.playerChar.getMaxHealth() ) {
-        	Main.playerChar.setCurrHealth(  Main.playerChar.getMaxHealth() );
-        }
-    }
-    */
-    
     //Javadoc auto-populated due to @Override tag
     /**
      * 
@@ -160,7 +117,6 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 		//set the inventory button names
 		loadInventoryList( Main.playerChar.inventory.getItemList() );
 		
-
 	}
     
 	/**

@@ -1,6 +1,15 @@
 package application.model;
 
-
+/**
+ * Player is a Java class which defines the Player object.
+ * This class has a String object (name), a String object (charClass), an int variable (currHealth),
+ * a int variable (maxHealth), and an int variable (level), an int variable (exp) , an int variable (str),
+ * an int variable (def), and int variable (spd), and an int variable (dex).
+ * 
+ * @author Patrick Jenkins and Team
+ * UTSA CS 3443 - Team Project
+ * Fall 2021
+ */
 public class Player {
 	
 	public String name;
@@ -25,14 +34,28 @@ public class Player {
 	//inventory - arraylist of strings
 	public Inventory inventory;
 	
+	/**
+	 * Constructor method; creates the Player object.
+	 * 
+	 * @param name - Name of the Player object, represented by a String object.
+	 * @param charClass - Character class of the Player object, represented by a String object.
+	 * @param currHealth - Current health of the Player object, represented by an int variable.
+	 * @param maxHealth - Maximum health of the Player object, represented by a double.
+	 * @param level - Level of the Player object, represented by an int variable.
+	 * @param exp - Experience of the Player object, represented by an int variable.
+	 * @param str - Strength of the Player object, represented by an int variable.
+	 * @param def - Defense of the Player object, represented by an int variable.
+	 * @param spd - Speed of the Player object, represented by an int variable.
+	 * @param dex - Dexterity of the Player object, represented by an int variable.
+	 */
 	public Player(String userName, String charClass, int currHealth, int maxHealth, int level, int exp, int strength, int defense, int spd,  int dexterity, Inventory inventory)
 	{
 		this.name = userName;
 		this.charClass = charClass;
-		this.currHealth=currHealth;
-		this.maxHealth=maxHealth;
-		this.level=level;
-		this.exp=exp;
+		this.currHealth = currHealth;
+		this.maxHealth = maxHealth;
+		this.level = level;
+		this.exp = exp;
 		this.str = strength;
 		this.def = defense;
 		this.spd = spd;
@@ -40,9 +63,14 @@ public class Player {
 		
 		//TODO Make sure this doesn't return null pointer later in code (inventorycontroller)
 		this.inventory = makeInventory(inventory);
-		
 	}
-
+	
+	/**
+	 * Method which creates a new Inventory object for the Player.inventory in the event it is currently a null pointer.
+	 * 
+	 * @param inventory - Inventory object to be validated if it is a null pointer
+	 * @return - Either current non-null pointer Inventory object or new Inventory object if was a null pointer
+	 */
 	public Inventory makeInventory(Inventory inventory) {
 		if(inventory == (null)) {
 			return new Inventory();
@@ -56,7 +84,6 @@ public class Player {
 	
 	/**
 	 * Initialize a character's inventory based on class
-	 * 
 	 */
 	public void initializeInventory() {
 				/* Valid potions as of Dec 1
@@ -248,7 +275,4 @@ public class Player {
 	public void setInventory(Inventory inventory) {
 		this.inventory = inventory;
 	}
-
-	
-
 }

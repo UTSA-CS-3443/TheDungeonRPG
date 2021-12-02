@@ -9,7 +9,7 @@ import application.Main;
  * Inventory is a Java class which defines the Inventory object.
  * This class has an ArrayList<String> object (itemList).
  * 
- * @author Thomas Burns (aqj787) and Team
+ * @author Thomas Burns and Team
  * UTSA CS 3443 - Team Project
  * Fall 2021
  */
@@ -25,8 +25,9 @@ public class Inventory {
 	}
 	
 	/**
+	 * Constructor method; creates the Inventory object.
 	 * 
-	 * @param itemList
+	 * @param itemList - ItemList of the Inventory object, represented by a ArrayList<String> object.
 	 */
 	public Inventory( ArrayList<String> itemList ) {
 		// Create populated ArrayList<String> object
@@ -37,13 +38,11 @@ public class Inventory {
 	 * addItem adds an itemName (String) to the itemList ArrayList<String>. The method first determines if itemList.size() < 10, and if not, does nothing.
 	 * Else, the item gets added to the itemList, provided the name is valid, otherwise a String with a default value gets added.
 	 * 
-	 * @param itemName
+	 * @param itemName - String representation of item to be added to the ArrayList<String> itemList.
 	 */
 	public void addItem( String itemName ) {
 		// only add item if itemList.size() < 10 ... 10 is max inventory
 		if( itemList.size() < 10 ) {
-			
-
 			String itemNameValid = "";
 			int i;
 			
@@ -76,7 +75,6 @@ public class Inventory {
 			itemList.add( itemNameValid );
 		}
 	}
-	
 	
 	/**
 	 * Removes a String from itemList, and uses the String representation of the String removed from itemList
@@ -123,7 +121,7 @@ public class Inventory {
     			break;
     	}
         
-    	// Ensure any changes to not put currHealth higher than maxHealth
+    	// Ensure any changes do not put currHealth higher than maxHealth
        	if( Main.playerChar.getCurrHealth() > Main.playerChar.getMaxHealth() ) {
         	Main.playerChar.setCurrHealth(  Main.playerChar.getMaxHealth() );
         }
@@ -132,7 +130,7 @@ public class Inventory {
 	/**
 	 * Getter method; gets the value for ArrayList<String> itemList from the Inventory object, and returns the value.
 	 * 
-	 * @return ArrayList<String> itemList alias from the Inventory object
+	 * @return ArrayList<String> itemList from the Inventory object
 	 */
 	public ArrayList<String> getItemList() {
 		return itemList;
@@ -141,7 +139,7 @@ public class Inventory {
 	/**
 	 * Setter method; sets the value of ArrayList<String> itemList in the Inventory object to the value of the passed parameter.
 	 * 
-	 * @param name - ArrayList<String> to be set as the value of itemList in the Avenger Inventory
+	 * @param name - ArrayList<String> to be set as the value of itemList in the Inventory object
 	 */
 	public void setItemList(ArrayList<String> itemList) {
 		this.itemList = itemList;

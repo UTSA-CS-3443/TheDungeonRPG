@@ -2,14 +2,29 @@ package application.model;
 
 import java.util.Random;
 
+/**
+ * Battle is a Java class which defines the method used for pressing the ATTACK button in the Battle view.
+ * This class has an int variable (health), a Random object (rand) , a boolean variable (playerHit),
+ * a String object (playerDMG), a boolean variable (monsterHit), and a String object (monsterDMG).
+ * 
+ * @author Cassidy Ferrel and Team
+ * UTSA CS 3443 - Final Project
+ * Fall 2021
+ */
 public class Battle {
 	public static int health = 100;
-	static Random rand = new Random();
-	static boolean playerHit;
-	static String playerDMG;
-	static boolean monsterHit;
-	static String monsterDMG;
-
+	public static Random rand = new Random();
+	public static boolean playerHit;
+	public static String playerDMG;
+	public static boolean monsterHit;
+	public static String monsterDMG;
+	
+	/**
+	 * Method initiated whenever the ATTACK Button object is pressed in the Battle view.
+	 * 
+	 * @param player - Player object representing the player
+	 * @param monster - Player object representing the monster in the room
+	 */
 	public static void attack(Player player, Player monster) {
 
 		/*
