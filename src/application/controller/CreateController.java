@@ -139,6 +139,14 @@ public class CreateController implements EventHandler<ActionEvent> {
     	Main.playerChar.setCharClass("Hunter");
 
     	
+    	/*
+    	 * Hunter stats
+    	 * Strength: 0 
+			Defense: 5 
+			Speed: 10
+			Dexterity: 10 
+    	 */
+    	
     	Main.playerChar.setStr(0);
     	Main.playerChar.setDef(5);
     	Main.playerChar.setSpd(10);
@@ -168,6 +176,14 @@ public class CreateController implements EventHandler<ActionEvent> {
     	classSelect.setText("Knight");
     	Main.playerChar.setCharClass("Knight");
 
+    	
+    	/*
+    	 * Knight stats
+    	 * Strength: 8 
+			Defense: 10 
+			Speed: 4 
+			Dexterity: 3 
+    	 */
     	
     	Main.playerChar.setStr(8);
     	Main.playerChar.setDef(10);
@@ -200,6 +216,7 @@ public class CreateController implements EventHandler<ActionEvent> {
     	//classSelect.setText("Knight");
     	Main.playerChar.setCharClass(customClassName.getText());
 
+    	//Custom class allows player to distribute all 30 points as they see fit
     	
     	Main.playerChar.setStr(0);
     	Main.playerChar.setDef(0);
@@ -379,19 +396,24 @@ public class CreateController implements EventHandler<ActionEvent> {
 	//Has custom name
 	//Has selected a class
 	public boolean isValidChar() {
+		
+		//Check if the default class or no names are used for class
 		if(Main.playerChar.getName().equals("Placeholder") || Main.playerChar.getCharClass().equals("noClass") && Main.playerChar.getName().length() > 0 && Main.playerChar.getCharClass().length() > 0) {
     		labelError.setText("Character must have a name and class!");
     		labelError.setVisible(true);
 			return false;
 		}
+		
+		//Check if the custom class name already exists. NOT case sensitive
 		else if(isCustom) {
 			int i;
 			for(i = 0; i < validClasses.size(); ++i ) {
-				if(Main.playerChar.getCharClass().equals(validClasses.get(i))) {
+				if(Main.playerChar.getCharClass().toLowerCase().equals(validClasses.get(i).toLowerCase())) {
 					break;
 				}
 			}
 			//Class is invalid if this is true
+			//Indicates not all classes were checked aka a match was found
 			if(i < validClasses.size()) {
 	    		labelError.setText("This class already exists, pick another name.");
 	    		labelError.setVisible(true);
