@@ -18,25 +18,34 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Text;
 
+/**
+ * End is a Java class that is the controller for the End JavaFX scene.
+ * 
+ * @author Matthew House, Patrick Jenkins, and Team
+ * UTSA CS 3443 - Lab 6
+ * Fall 2021
+ */
 public class EndController implements EventHandler<ActionEvent>, Initializable {
 
 	@FXML
 	private Label statusText;
 	
-	@FXML ImageView background;
+	@FXML
+	private ImageView background;
 	
-	@FXML Button retryButton;
-
+	@FXML
+	private Button retryButton;
+	
+    //Javadoc auto-populated due to @Override tag
+    /**
+     * 
+     */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Image picture;
 		
-		
 		if (Main.status.equals("Victory")) {
-
-			
 			FileInputStream input;
 
 			try {
@@ -50,7 +59,6 @@ public class EndController implements EventHandler<ActionEvent>, Initializable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
 
 
@@ -66,12 +74,16 @@ public class EndController implements EventHandler<ActionEvent>, Initializable {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-
 		}
 	}
 	
-	@FXML void handleRetry(ActionEvent event) {
+	/**
+	 * Method called when Button retryButton is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button retryButton is pressed.
+	 */
+	@FXML
+	public void handleRetry(ActionEvent event) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/Main.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));
@@ -84,7 +96,11 @@ public class EndController implements EventHandler<ActionEvent>, Initializable {
 			e.printStackTrace();
 		}
 	}
-
+	
+    //Javadoc auto-populated due to @Override tag
+    /**
+     * 
+     */
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub

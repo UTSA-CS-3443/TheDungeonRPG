@@ -1,6 +1,5 @@
 package application.controller;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,36 +18,74 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
+/**
+ * CreateController is a Java class that is the controller for the Create JavaFX scene.
+ * 
+ * @author Patrick Jenkins and Team
+ * UTSA CS 3443 - Lab 6
+ * Fall 2021
+ */
 public class CreateController implements EventHandler<ActionEvent> {
 
-	@FXML private TextField charName;
-	@FXML private TextField customClassName;
+	@FXML
+	private TextField charName;
 	
-	@FXML private SplitMenuButton classSelect;
-	@FXML private MenuItem warriorItem;
-	@FXML private MenuItem hunterItem;
+	@FXML
+	private TextField customClassName;
 	
-	@FXML private Button strengthDec;
-	@FXML private Button strengthInc;
-	@FXML private Text strengthCount;
+	@FXML
+	private SplitMenuButton classSelect;
 	
-	@FXML private Button defenseDec;
-	@FXML private Button defenseInc;
-    @FXML private Text defenseCount;
+	@FXML
+	private MenuItem warriorItem;
+	
+	@FXML
+	private MenuItem hunterItem;
+	
+	@FXML
+	private Button strengthDec;
+	
+	@FXML
+	private Button strengthInc;
+	
+	@FXML
+	private Text strengthCount;
+	
+	@FXML
+	private Button defenseDec;
+	
+	@FXML
+	private Button defenseInc;
+    
+	@FXML
+	private Text defenseCount;
 
-    @FXML private Button speedDec;
-    @FXML private Button speedInc;
-    @FXML private Text speedCount;
+    @FXML
+    private Button speedDec;
+    
+    @FXML
+    private Button speedInc;
+    
+    @FXML
+    private Text speedCount;
 
-    @FXML private Button dexterityDec;
-    @FXML private Button dexterityInc;
-    @FXML private Text dexterityCount;
+    @FXML
+    private Button dexterityDec;
     
-    @FXML private Button submitButton;
+    @FXML
+    private Button dexterityInc;
     
-    @FXML private Label labelError;
+    @FXML
+    private Text dexterityCount;
     
-    @FXML private Text customPoints;
+    @FXML
+    private Button submitButton;
+    
+    @FXML
+    private Label labelError;
+    
+    @FXML
+    private Text customPoints;
 
     private int minStr = 0;
     private int minDef = 0;
@@ -61,20 +98,38 @@ public class CreateController implements EventHandler<ActionEvent> {
     private boolean isCustom = false;
     
     //list storing valid classes
-    List<String> validClasses = Arrays.asList("Warrior", "Knight", "Hunter");
+    private List<String> validClasses = Arrays.asList("Warrior", "Knight", "Hunter");
     
-    @FXML void classSelected(ActionEvent event) {
+	/**
+	 * Method called when SplitMenuButton classSelect is used.
+	 * 
+	 * @param event - ActionEvent generated when SplitMenuButton classSelect is used.
+	 */
+    @FXML
+    public void classSelected(ActionEvent event) {
     	
     }
     
-    @FXML void nameUpdated(KeyEvent event) {
+	/**
+	 * Method called when TextField charName is updated.
+	 * 
+	 * @param event - KeyEvent generated when TextField charName is updated.
+	 */
+    @FXML
+    public void nameUpdated(KeyEvent event) {
     	System.out.println(charName.getText());
     	
     	Main.playerChar.name = charName.getText();
 
     }
     
-    @FXML void classNameUpdated(KeyEvent event) {
+	/**
+	 * Method called when TextField customClassName is updated.
+	 * 
+	 * @param event - KeyEvent generated when TextField customClassName is updated.
+	 */
+    @FXML
+    public void classNameUpdated(KeyEvent event) {
     	
     	if(customClassName.getText().length() < 15) {
     		labelError.setVisible(false);
@@ -91,7 +146,13 @@ public class CreateController implements EventHandler<ActionEvent> {
 
     }
     
-    @FXML void warriorSelected(ActionEvent event) {
+	/**
+	 * Method called when Warrior is selected from SplitMenuButton classSelect.
+	 * 
+	 * @param event - ActionEvent generated when Warrior is selected from SplitMenuButton classSelect.
+	 */
+    @FXML
+    public void warriorSelected(ActionEvent event) {
     	
     	isCustom = false;
     	System.out.println("WARRIOR");
@@ -131,7 +192,13 @@ public class CreateController implements EventHandler<ActionEvent> {
     	
     }
     
-    @FXML void hunterSelected(ActionEvent event) {
+	/**
+	 * Method called when Hunter is selected from SplitMenuButton classSelect.
+	 * 
+	 * @param event - ActionEvent generated when Hunter is selected from SplitMenuButton classSelect.
+	 */
+    @FXML
+    public void hunterSelected(ActionEvent event) {
     	isCustom = false;
     	System.out.println("HUNTER");
     	customClassName.setVisible(false);
@@ -169,7 +236,14 @@ public class CreateController implements EventHandler<ActionEvent> {
     	
     	Main.playerChar.initializeInventory();
     }
-    @FXML void knightSelected(ActionEvent event) {
+    
+	/**
+	 * Method called when Knight is selected from SplitMenuButton classSelect.
+	 * 
+	 * @param event - ActionEvent generated when Knight is selected from SplitMenuButton classSelect.
+	 */
+    @FXML
+    public void knightSelected(ActionEvent event) {
     	isCustom = false;
     	System.out.println("KNIGHT");
     	customClassName.setVisible(false);
@@ -208,7 +282,13 @@ public class CreateController implements EventHandler<ActionEvent> {
     	Main.playerChar.initializeInventory();
     }
     
-    @FXML void customSelected(ActionEvent event) {
+	/**
+	 * Method called when custom class is selected from SplitMenuButton classSelect.
+	 * 
+	 * @param event - ActionEvent generated when custom class is selected from SplitMenuButton classSelect.
+	 */
+    @FXML
+    public void customSelected(ActionEvent event) {
     	isCustom = true;
     	System.out.println("CUSTOM");
     	classSelect.setText("");
@@ -241,11 +321,15 @@ public class CreateController implements EventHandler<ActionEvent> {
     	
     	Main.playerChar.initializeInventory();
     }
-
-    @FXML void strengthDecPressed(ActionEvent event) {
-    	
+    
+	/**
+	 * Method called when Button strengthDec is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button strengthDec is pressed.
+	 */
+    @FXML
+    public void strengthDecPressed(ActionEvent event) {
     	int strength = Integer.parseInt(strengthCount.getText());
-    	
     	
     	//Check if there are any statPts left AND that stat is greater than its minimum value
     	if(statPts < maxPts && strength > minStr) {
@@ -255,10 +339,15 @@ public class CreateController implements EventHandler<ActionEvent> {
     		--strength;
     		strengthCount.setText(Integer.toString(strength));
     	}
-
     }
     
-    @FXML void strengthIncPressed(ActionEvent event) {
+	/**
+	 * Method called when Button strengthInc is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button strengthInc is pressed.
+	 */
+    @FXML
+    public void strengthIncPressed(ActionEvent event) {
     	int strength = Integer.parseInt(strengthCount.getText());
     	
     	//Check if there are any statPts left AND that stat is greater than its minimum value
@@ -269,15 +358,17 @@ public class CreateController implements EventHandler<ActionEvent> {
     		++strength;
     		strengthCount.setText(Integer.toString(strength));
     	}
-    	
-    	
-
     }
-
-    @FXML void defenseDecPressed(ActionEvent event) {
+    
+	/**
+	 * Method called when Button defenseDec is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button defenseDec is pressed.
+	 */
+    @FXML
+    public void defenseDecPressed(ActionEvent event) {
     	int defense = Integer.parseInt(defenseCount.getText());
     	//Check if stat is able to be decreased and it's not below the minimum allowed defense for the class
-
 
     	//Check if there are any statPts left AND that stat is greater than its minimum value
     	if(statPts < maxPts && defense > minDef) {
@@ -287,12 +378,15 @@ public class CreateController implements EventHandler<ActionEvent> {
     		--defense;
     		defenseCount.setText(Integer.toString(defense));
     	}
-    	
-
-    	
     }
     
-    @FXML void defenseIncPressed(ActionEvent event) {
+	/**
+	 * Method called when Button defenseInc is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button defenseInc is pressed.
+	 */
+    @FXML
+    public void defenseIncPressed(ActionEvent event) {
     	int defense = Integer.parseInt(defenseCount.getText());
     	
     	//Check if there are any statPts left AND that stat is greater than its minimum value
@@ -303,14 +397,16 @@ public class CreateController implements EventHandler<ActionEvent> {
     		++defense;
     		defenseCount.setText(Integer.toString(defense));
     	}
-    	
-
     }
-
-    @FXML void speedDecPressed(ActionEvent event) {
+    
+	/**
+	 * Method called when Button speedDec is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button speedDec is pressed.
+	 */
+    @FXML
+    public void speedDecPressed(ActionEvent event) {
     	int speed = Integer.parseInt(speedCount.getText());
-    	
-    	
     	
     	//Check if there are any statPts left AND that stat is greater than its minimum value
     	if(statPts < maxPts && speed > minSpd) {
@@ -320,14 +416,16 @@ public class CreateController implements EventHandler<ActionEvent> {
     		--speed;
     		speedCount.setText(Integer.toString(speed));
     	}
-    	
-
     }
     
-    @FXML void speedIncPressed(ActionEvent event) {
+	/**
+	 * Method called when Button speedInc is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button speedInc is pressed.
+	 */
+    @FXML
+    public void speedIncPressed(ActionEvent event) {
     	int speed = Integer.parseInt(speedCount.getText());
-    	
-    	
     	
     	if(statPts > 0) {
     		//If so then decrement the stat and increment the statPts;
@@ -336,13 +434,16 @@ public class CreateController implements EventHandler<ActionEvent> {
     		++speed;
     		speedCount.setText(Integer.toString(speed));
     	}
-    	
-
     }
-
-    @FXML void dexterityDecPressed(ActionEvent event) {
+    
+	/**
+	 * Method called when Button dexterityDec is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button dexterityDec is pressed.
+	 */
+    @FXML
+    public void dexterityDecPressed(ActionEvent event) {
     	int dexterity = Integer.parseInt(dexterityCount.getText());
-    	
     	
     	//Check if there are any statPts left AND that stat is greater than its minimum value
     	if(statPts < maxPts && dexterity > minDex) {
@@ -352,11 +453,15 @@ public class CreateController implements EventHandler<ActionEvent> {
     		--dexterity;
     		dexterityCount.setText(Integer.toString(dexterity));
     	}
-    	
-
     }
-
-    @FXML void dexterityIncPressed(ActionEvent event) {
+    
+	/**
+	 * Method called when Button dexterityInc is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button dexterityInc is pressed.
+	 */
+    @FXML
+    public void dexterityIncPressed(ActionEvent event) {
     	int dexterity = Integer.parseInt(dexterityCount.getText());
     	
     	if(statPts > 0) {
@@ -366,11 +471,15 @@ public class CreateController implements EventHandler<ActionEvent> {
     		++dexterity;
     		dexterityCount.setText(Integer.toString(dexterity));
     	}
-    	
-
     }
-  
-    @FXML void submitPressed(ActionEvent event) {
+    
+	/**
+	 * Method called when Button submitButton is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button submitButton is pressed.
+	 */
+    @FXML
+    public void submitPressed(ActionEvent event) {
 
     	//Check if character has name and class set. If not, display error
     	//Do not allow program to proceed
@@ -389,12 +498,16 @@ public class CreateController implements EventHandler<ActionEvent> {
 			e.printStackTrace();
 		}
     }
-
-
-
+    
 	//Check if character is valid
 	//Has custom name
 	//Has selected a class
+    /**
+     * Method which returns a boolean variable, depending on the answers to the following actions:
+     * Check if character is valid, check if character has custom name, and check if a class is selected.
+     * 
+     * @return The appropriate boolean representation for if the respective variable(s) are valid
+     */
 	public boolean isValidChar() {
 		
 		//Check if the default class or no names are used for class
@@ -428,6 +541,10 @@ public class CreateController implements EventHandler<ActionEvent> {
 		}
 	}
 	
+    //Javadoc auto-populated due to @Override tag
+    /**
+     * 
+     */
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub

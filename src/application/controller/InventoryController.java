@@ -15,25 +15,62 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/**
+ * InventoryController is a Java class that is the controller for the Inventory JavaFX scene.
+ * 
+ * @author Thomas Burns and Team
+ * UTSA CS 3443 - Lab 6
+ * Fall 2021
+ */
 public class InventoryController implements EventHandler<ActionEvent>, Initializable {
 
-	@FXML private TextField playerName;
-	@FXML private TextField playerLevel;
-    @FXML private TextField playerHP;
-    @FXML private TextField curExp;
-    @FXML private TextField nextLevel;
+	@FXML
+	private TextField playerName;
+	
+	@FXML
+	private TextField playerLevel;
+	
+	@FXML
+	private TextField playerHP;
     
-    @FXML private Button backToBattle;
-    @FXML private Button item1;
-    @FXML private Button item2;
-    @FXML private Button item3;
-    @FXML private Button item4;
-    @FXML private Button item5;
-    @FXML private Button item6;
-    @FXML private Button item7;
-    @FXML private Button item8;
-    @FXML private Button item9;
-    @FXML private Button item10;
+    @FXML
+    private TextField curExp;
+    
+    @FXML
+    private TextField nextLevel;
+    
+    @FXML
+    private Button backToBattle;
+    
+    @FXML
+    private Button item1;
+    
+    @FXML
+    private Button item2;
+    
+    @FXML
+    private Button item3;
+    
+    @FXML
+    private Button item4;
+    
+    @FXML
+    private Button item5;
+    
+    @FXML
+    private Button item6;
+    
+    @FXML
+    private Button item7;
+    
+    @FXML
+    private Button item8;
+    
+    @FXML
+    private Button item9;
+    
+    @FXML
+    private Button item10;
     
     /**
      * Method that initializes all TextField objects related to items names to "Empty" 
@@ -124,7 +161,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
 	 * @param - default ActionEvent object representation of Button object being pressed
 	 */
-    @FXML void item1Pressed(ActionEvent event) {
+    @FXML
+    public void item1Pressed(ActionEvent event) {
     	// if not empty
     	if( !( item1.getText().equals( "Empty" ) ) ) {
     		
@@ -153,7 +191,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
      * @param - default ActionEvent object representation of Button object being pressed
      */
-    @FXML void item2Pressed(ActionEvent event) {
+    @FXML
+    public void item2Pressed(ActionEvent event) {
     	// if not empty
     	if( !( item2.getText().equals( "Empty" ) ) ) {
     		
@@ -182,7 +221,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
      * @param - default ActionEvent object representation of Button object being pressed
      */
-    @FXML void item3Pressed(ActionEvent event) {
+    @FXML
+    public void item3Pressed(ActionEvent event) {
     	// if not empty
     	if( !( item3.getText().equals( "Empty" ) ) ) {
     		
@@ -211,7 +251,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
      * @param - default ActionEvent object representation of Button object being pressed
      */
-    @FXML void item4Pressed(ActionEvent event) {
+    @FXML
+    public void item4Pressed(ActionEvent event) {
     	// if not empty
     	if( !( item4.getText().equals( "Empty" ) ) ) {
     		
@@ -240,7 +281,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
      * @param - default ActionEvent object representation of Button object being pressed
      */
-    @FXML void item5Pressed(ActionEvent event) {
+    @FXML
+    public void item5Pressed(ActionEvent event) {
     	// if not empty
     	if( !( item5.getText().equals( "Empty" ) ) ) {
     		
@@ -269,7 +311,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
      * @param - default ActionEvent object representation of Button object being pressed
      */
-    @FXML void item6Pressed(ActionEvent event) {
+    @FXML
+    public void item6Pressed(ActionEvent event) {
     	// if not empty
     	if( !( item6.getText().equals( "Empty" ) ) ) {
     		
@@ -298,7 +341,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
      * @param - default ActionEvent object representation of Button object being pressed
      */
-    @FXML void item7Pressed(ActionEvent event) {
+    @FXML
+    public void item7Pressed(ActionEvent event) {
     	// if not empty
     	if( !( item7.getText().equals( "Empty" ) ) ) {
     		
@@ -327,7 +371,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
      * @param - default ActionEvent object representation of Button object being pressed
      */
-    @FXML void item8Pressed(ActionEvent event) {
+    @FXML
+    public void item8Pressed(ActionEvent event) {
     	// if not empty
     	if( !( item8.getText().equals( "Empty" ) ) ) {
     		
@@ -356,7 +401,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
      * @param - default ActionEvent object representation of Button object being pressed
      */
-    @FXML void item9Pressed(ActionEvent event) {
+    @FXML
+    public void item9Pressed(ActionEvent event) {
     	// if not empty
     	if( !( item9.getText().equals( "Empty" ) ) ) {
     		
@@ -385,7 +431,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
 	 * @param - default ActionEvent object representation of Button object being pressed
 	 */
-    @FXML void item10Pressed(ActionEvent event) {
+    @FXML
+    public void item10Pressed(ActionEvent event) {
     	// if not empty
     	if( !( item10.getText().equals( "Empty" ) ) ) {
     		
@@ -414,7 +461,8 @@ public class InventoryController implements EventHandler<ActionEvent>, Initializ
 	 * 
 	 * @param - default ActionEvent object representation of Button object being pressed
 	 */
-    @FXML void backToBattlePressed(ActionEvent event) {
+    @FXML
+    public void backToBattlePressed(ActionEvent event) {
     	try {
 			Parent root = FXMLLoader.load(getClass().getResource("../view/Battle.fxml"));
 			Main.stage.setScene(new Scene(root, 800, 800));

@@ -17,31 +17,49 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/**
+ * BattleController is a Java class that is the controller for the Battle JavaFX scene.
+ * 
+ * @author Cassidy Ferrel and Team
+ * UTSA CS 3443 - Lab 6
+ * Fall 2021
+ */
 public class BattleController implements EventHandler<ActionEvent>, Initializable {
 
 	@FXML
 	private TextField playerName;
+	
 	@FXML
 	private TextField playerLevel;
+	
 	@FXML
 	private TextField playerHP;
 
 	@FXML
 	private TextField enemyName;
+	
 	@FXML
 	private TextField enemyLevel;
+	
 	@FXML
 	private TextField enemyHP;
 
 	@FXML
 	private Button attackButton;
+	
 	@FXML
 	private Button runButton;
+	
 	@FXML
 	private Button itemsButton;
 
+	/**
+	 * Method called when Button attackButton is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button attackButton is pressed.
+	 */
 	@FXML
-	void attackPressed(ActionEvent event) {
+	public void attackPressed(ActionEvent event) {
 
 		// Make sure monster and player are not dead.
 		if ((Main.monster.getCurrHealth() > 0) && (Main.playerChar.getCurrHealth() > 0)) {
@@ -94,8 +112,13 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
 		}
 	}
 
+	/**
+	 * Method called when Button runButton is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button runButton is pressed.
+	 */
 	@FXML
-	void runPressed(ActionEvent event) {
+	public void runPressed(ActionEvent event) {
 
 		// Player loses
 		Main.status = "Defeat";
@@ -113,9 +136,14 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Method called when Button itemsButton is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button itemsButton is pressed.
+	 */
 	@FXML
-	void itemsPressed(ActionEvent event) {
+	public void itemsPressed(ActionEvent event) {
 		
 		// Player views inventory
 		try {
@@ -130,13 +158,21 @@ public class BattleController implements EventHandler<ActionEvent>, Initializabl
 			e.printStackTrace();
 		}
 	}
-
+	
+	//Javadoc auto-populated due to @Override tag
+	/**
+	 * 
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	//Javadoc auto-populated due to @Override tag
+	/**
+	 * 
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 

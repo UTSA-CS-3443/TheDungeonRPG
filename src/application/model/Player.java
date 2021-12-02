@@ -80,8 +80,6 @@ public class Player {
 		}
 	}
 	
-	
-	
 	/**
 	 * Initialize a character's inventory based on class
 	 */

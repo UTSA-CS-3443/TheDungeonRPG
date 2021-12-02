@@ -16,31 +16,47 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
+/**
+ * RoomController is a Java class that is the controller for the Room JavaFX scene.
+ * 
+ * @author Matthew House and Team
+ * UTSA CS 3443 - Lab 6
+ * Fall 2021
+ */
 public class RoomController implements EventHandler<ActionEvent>, Initializable {
 
 	@FXML
 	private TextArea roomDesc;
+	
 	@FXML
 	private Label labelText;
 
 	@FXML
 	private Button fightButton;
+	
 	@FXML
 	private Button lootButton;
 
 	@FXML
 	private Button upButton;
+	
 	@FXML
 	private Button leftButton;
+	
 	@FXML
 	private Button downButton;
+	
 	@FXML
 	private Button rightButton;
 
-	@FXML
-	
 	// Player Choose to Fight
-	void fightPressed(ActionEvent event) {
+	/**
+	 * Method called when Button fightButton is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button fightButton is pressed.
+	 */
+	@FXML
+	public void fightPressed(ActionEvent event) {
 		
 		// Check if monster is present or not defeated
 		if (Dungeon.curMonster.equals("NULL")) {
@@ -63,9 +79,14 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 		}
 
 	}
-
+	
+	/**
+	 * Method called when Button upButton is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button upButton is pressed.
+	 */
 	@FXML
-	void upPressed(ActionEvent event) {
+	public void upPressed(ActionEvent event) {
 		
 		// Check if monster has been defeated
 		if (Dungeon.monsterDefeated == false)
@@ -83,7 +104,12 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 		else
 			roomDesc.setText("There is no path this way, please try another direction.");
 	}
-
+	
+	/**
+	 * Method called when Button leftButton is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button leftButton is pressed.
+	 */
 	@FXML
 	void leftPressed(ActionEvent event) {
 		
@@ -103,7 +129,12 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 		else
 			roomDesc.setText("There is no path this way, please try another direction.");
 	}
-
+	
+	/**
+	 * Method called when Button downButton is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button downButton is pressed.
+	 */
 	@FXML
 	void downPressed(ActionEvent event) {
 		
@@ -138,7 +169,12 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 		else
 			roomDesc.setText("There is no path this way, please try another direction.");
 	}
-
+	
+	/**
+	 * Method called when Button rightButton is pressed.
+	 * 
+	 * @param event - ActionEvent generated when Button rightButton is pressed.
+	 */
 	@FXML
 	void rightPressed(ActionEvent event) {
 		
@@ -159,12 +195,20 @@ public class RoomController implements EventHandler<ActionEvent>, Initializable 
 			roomDesc.setText("There is no path this way, please try another direction.");
 	}
 
+    //Javadoc auto-populated due to @Override tag
+	/**
+	 * 
+	 */
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+    //Javadoc auto-populated due to @Override tag
+	/**
+	 * 
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Dungeon.loadRoom(Dungeon.curRoom);
