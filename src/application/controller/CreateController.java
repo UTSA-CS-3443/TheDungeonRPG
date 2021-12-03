@@ -117,8 +117,9 @@ public class CreateController implements EventHandler<ActionEvent> {
 	 */
     @FXML
     public void nameUpdated(KeyEvent event) {
+    	//Print out charname to console as it's updated
     	System.out.println(charName.getText());
-    	
+    
     	Main.playerChar.name = charName.getText();
 
     }
@@ -131,6 +132,7 @@ public class CreateController implements EventHandler<ActionEvent> {
     @FXML
     public void classNameUpdated(KeyEvent event) {
     	
+    	//Verify a custom class name is not too long (15 chars)
     	if(customClassName.getText().length() < 15) {
     		labelError.setVisible(false);
         	System.out.println(customClassName.getText());

@@ -66,8 +66,6 @@ public class Inventory {
 			}
 			
 			// default if invalid name given
-			//if( i <= listValidItems.size() ) {
-			//NOTE - Fixed bug where all potions/items ended up being generic "Potion" - Patrick
 			if( i <= listValidItems.size() && itemNameValid.equals("") ) {
 				itemNameValid = "Potion";
 			}

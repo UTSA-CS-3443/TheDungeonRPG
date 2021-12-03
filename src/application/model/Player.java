@@ -98,17 +98,17 @@ public class Player {
 		//Warrior class gets Potion
 		//Str pot
 		//Str pot
-		if(this.charClass.equals("Warrior")) {
+		if(this.charClass.equalsIgnoreCase("Warrior")) {
 			this.inventory.addItem("Potion");
 			this.inventory.addItem("Strength up");
 			this.inventory.addItem("Strength up");
 		}
-		else if(this.charClass == "Hunter") {
+		else if(this.charClass.equalsIgnoreCase("Hunter")) {
 			this.inventory.addItem("Potion");
 			this.inventory.addItem("Defense up");
 			this.inventory.addItem("Defense up");
 		}
-		else if(this.charClass == "Knight") {
+		else if(this.charClass.equalsIgnoreCase("Knight")) {
 			this.inventory.addItem("Potion");
 			this.inventory.addItem("Defense up");
 			this.inventory.addItem("Strength up");
