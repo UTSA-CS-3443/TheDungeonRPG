@@ -11,6 +11,11 @@ This is a simple JavaFX game inspired by old school text adventure games of the 
  * Eclipse IDE
  * PhotoFlare for pixelizing images
 
+## TODO
+ * Improve leveling system
+ * Add more rooms
+ * Improve interface theme throughout
+
 ## Installation
 Using Eclipse IDE (https://www.eclipse.org/ide/)...
 
